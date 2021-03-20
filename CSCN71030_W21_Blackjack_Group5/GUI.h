@@ -14,6 +14,8 @@ void mainMenu(pPLAYERLIST, pPLAYER);
 
 void optionsMenu(pPlayer);
 
+void leaderboard(pPLAYERLIST);
+
 void instructions();
 
 void playGame();

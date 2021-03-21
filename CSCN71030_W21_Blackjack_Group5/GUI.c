@@ -9,6 +9,8 @@
 
 #include "GUI.h"
 
+#include "TestingModule.h"
+
 
 //Includes all modules
 
@@ -20,11 +22,8 @@ void printDisclamer() {
 
 }
 
-/// <summary>
-/// Print the player list and allow users to select the designated player
-/// </summary>
-/// <param name="cmdLnPlayer">Command Line Argument which can be used to select the player</param>
-/// <param name="playerList">Pointer to the list of players</param>
+
+
 pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	int playerIndex;
 
@@ -60,9 +59,70 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 
 }
 
-void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 
-	printf("------Main Menu------");
+void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
+	char name[] = { "Gavin" };
+	int score = 10.50, WLRatio = 1.5;
+
+	printf("Welcome, %s\n", name );
+	printf("Current Balance: %d, Wins/Loss Ratio: %d\n\n", score, WLRatio );
+	printf("1) Learn to Play\n");
+	printf("2) Menu and Operation Instructions\n");
+	printf("3) Add Balance\n");
+	printf("4) Profile Options\n");
+	printf("5) Play Game\n");
+	printf("6) View Leaderboard\n");
+	printf("0) Quit\n\n");
+
+	printf("Enter a menu option: \n");
+	
+
+	int menuInput = intagerValidation();
+
+	switch (menuInput) {
+
+	case 0:
+		//save the profile list
+		exit(0);
+		break;
+
+	case 1:
+		displayLearnToPlay();
+		break;
+	case 2:
+		displayInstructions();
+		break;
+	case 3:
+		inputAddBalance(player);
+		break;
+	case 4:
+		profileOptions(player);
+		break;
+	case 5:
+		playGame(player);
+		break;
+	case 6:
+		diplayLeaderboard(playerList);
+		break;
+	}
+
+}
+	
+
+void printPlayer(pPlayer player) {
+
+	printf("%s - $%d %d\n", player->name, player->balance, player->wins/(player->totalGame - player->wins));
 
 }
 
+void displayLearnToPlay()
+{
+	printf("Learn to play");
+
+}
+
+void displayInstructions()
+{
+	printf("Instructions");
+
+}

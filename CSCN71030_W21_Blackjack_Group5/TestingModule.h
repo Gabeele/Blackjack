@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string.h>
+
 #define NAME_SIZE 100
 
 typedef struct playerList {
@@ -24,3 +26,4 @@ typedef struct player {
 
 }PLAYER, * pPLAYER;
 
+pPLAYER createPlayer(char [], double , int , int);

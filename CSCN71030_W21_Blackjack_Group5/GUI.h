@@ -12,7 +12,13 @@ pPLAYER PlayerSelectMenu(char*, pPLAYERLIST);
 
 void mainMenu(pPLAYERLIST, pPLAYER);
 
+void displayLearnToPlay();
+
+void displayInstructions();
+
 void optionsMenu(pPlayer);
+
+void printPlayer(pPLayer);
 
 void leaderboard(pPLAYERLIST);
 

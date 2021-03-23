@@ -19,7 +19,7 @@ typedef struct playerNode {
 
 typedef struct player {
 
-	char NAME[NAME_SIZE];
+	char name[NAME_SIZE];
 	double balance;
 	int totalGames;
 	int gamesWon;

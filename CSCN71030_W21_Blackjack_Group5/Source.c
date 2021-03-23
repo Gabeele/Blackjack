@@ -18,7 +18,7 @@ pPLAYER createPlayer(char name[], double balance, int totalGames, int gamesWon) 
 
 	pPLAYER player;
 
-	strcpy(player->NAME, name);
+	strcpy(player->name, name);
 	player->balance = balance;
 	player->totalGames = totalGames;
 	player->gamesWon = gamesWon;

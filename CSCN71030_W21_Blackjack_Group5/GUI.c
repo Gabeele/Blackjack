@@ -109,15 +109,31 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 }
 	
 
-void printPlayer(pPlayer player) {
+void printPlayer(pPLAYER player) {
 
-	printf("%s - $%d %d\n", player->name, player->balance, player->wins/(player->totalGame - player->wins));
+	printf("%s - $%d %d\n", player->name, player->balance, player->gamesWon/(player->totalGames - player->gamesWon));
 
 }
 
 void displayLearnToPlay()
 {
-	printf("Learn to play");
+	printf("                                                     ---Learn to play BLACKJACK---\n");
+	printf("Blackjack is a fun and simple casino style game. In fact, is the most popular table game in the casino!\n\n");
+	printf("Goal: The goal of blackjack is to try to get the total card values as close to 21 without going over. As well, as beating the dealers hand.\n\n");
+	printf("Terminology: \n");
+	printf("\t Hit - To recieve another card from the dealer.\n");
+	printf("\t Stand - Skip over, and don't receive another card.\n");
+	printf("\t Bust - When the player or the deal go over 21 total card value.\n");
+	printf("\t Push - When both you and the dealer's hards are equal.\n");
+	printf("\t Split - Splitting cards when the hand has two of the same cards. Plays as two separate hands.\n");
+	printf("\t Double Down - Doubling the bet, but not allowing any other hits.\n");
+	printf("\n\n");
+	printf("How to Play:\n");
+	printf("\t 1) On the start of the round, place your bets.\n");
+	printf("\t 2) Receive two cards.\n");
+	printf("\t 3) Based on the your hand and the dealers hand, determine whether to hit or stand.\n");
+	printf("\t 4) Repeat step 3 until everyone holds.\n");
+	printf("\t 5) Cards are then tallied and a winner is determined\n");
 
 }
 

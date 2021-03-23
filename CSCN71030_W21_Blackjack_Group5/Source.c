@@ -1,8 +1,20 @@
-//CSCN71030 - Project II 
+// CSCN71030-21W-Sec1-Project II: Team Based Software
 //
-//Group 5
+// Colin Smith
+//
+// Game Mechanics Module
+//
+// Sample main()
 
-int main() {
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-	return 0;
+#include "GameMechanics.h"
+
+// Main to test game mechanics 
+
+int main(void)
+{
+
 }

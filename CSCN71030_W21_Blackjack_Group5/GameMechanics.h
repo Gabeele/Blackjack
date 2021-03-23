@@ -88,3 +88,14 @@ typedef struct
 
 } card;
 
+// Function Declorations
+void shuffle(card deck[]);
+void setupDeck(card deck[]);
+void playRound(int balance, card deck[numDeck]); // ***Add Player from player Module in delcoration***
+int deal(card deck[], int* cardName);
+int playerTurn(card deck[], int* playerSum, int* newCard); // ***Add player from player module in decloration***
+int dealerTurn(card deck[], int* dealerSum, int* newCard);
+void determineWinner(int playerSum, int dealerSum, int* balance, int bet);  // ***Add player from player module in decloration***
+void sum(card deck[], int* playerSum, int* dealerSum, int* newCard);
+int userBet(int balance);
+void displayDeck(card cardName);

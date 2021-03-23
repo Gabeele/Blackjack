@@ -4,6 +4,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <dos.h>
 
 
 void printDisclamer();
@@ -16,13 +17,13 @@ void displayLearnToPlay();
 
 void displayInstructions();
 
-void optionsMenu(pPlayer);
+void inputAddFunds(pPlayer);
 
 void printPlayer(pPLayer);
 
 void leaderboard(pPLAYERLIST);
 
-void instructions();
+void displayInstructions();
 
 void playGame();
 

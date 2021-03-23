@@ -23,6 +23,8 @@ pPLAYER createPlayer(char name[], double balance, int totalGames, int gamesWon) 
 	player->totalGames = totalGames;
 	player->gamesWon = gamesWon;
 
+	getdate(player->balanceDate);
+
 	return player;
 }
 

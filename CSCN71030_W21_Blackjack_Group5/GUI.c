@@ -33,12 +33,14 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	else {	//If there is any command line arguments
 		pPLAYER playerSelected = playerSelectByString(cmdLnPlayer);
 
-		if (playerSelected) {	//Check if there is a player by that name
-			//printPlayerList()
-
+		if (playerSelected == NULL) {	//Check if there is a player by that name
+			
+			printPlayerList(playerList);
+	
 			do {	
 
 				printf("Select a Player Number: ");
+				
 				playerIndex = integerValdation();	//Input validation
 
 				if (verifyAbortIntager(playerIndex)) {	//Verifies abort intager
@@ -58,6 +60,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	return getPlayerFromList(playerList, playerIndex);
 
 }
+
 
 
 void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
@@ -87,22 +90,34 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 		break;
 
 	case 1:
+		system("cls");
 		displayLearnToPlay();
+		system("cls");
 		break;
 	case 2:
+		system("cls");
 		displayInstructions();
+		system("cls");
 		break;
 	case 3:
+		system("cls");
 		inputAddBalance(player);
+		system("cls");
 		break;
 	case 4:
+		system("cls");
 		profileOptions(player);
+		system("cls");
 		break;
 	case 5:
+		system("cls");
 		playGame(player);
+		system("cls");
 		break;
 	case 6:
+		system("cls");
 		diplayLeaderboard(playerList);
+		system("cls");
 		break;
 	}
 
@@ -113,6 +128,21 @@ void printPlayer(pPLAYER player) {
 
 	printf("%s - $%d %d\n", player->name, player->balance, player->gamesWon/(player->totalGames - player->gamesWon));
 
+}
+
+void printPlayerList(pPLAYERLIST playerList) {	//Cycles through the prints the list with numbering scheme
+	int counter = 1;
+
+	pPLAYERNODE node = playerList->head;
+
+	while (node != NULL) {
+		
+		printf("%d) %s\n", counter, node->data->name);
+
+		node->nextNode;
+
+		counter++;
+	}
 }
 
 void displayLearnToPlay()
@@ -135,10 +165,35 @@ void displayLearnToPlay()
 	printf("\t 4) Repeat step 3 until everyone holds.\n");
 	printf("\t 5) Cards are then tallied and a winner is determined\n");
 
+	printf("\nClick any key to continue...\n");
+	getchar();
 }
 
 void displayInstructions()
 {
-	printf("Instructions");
+	printf("                                                     ---Game Instuctions---\n");
+	printf("Moving Around Menus: You can move around the interfaces by entering menu options like 1 or 4.\n");
+	printf("Exiting: To back out at any time enter in 0000 to return to the menu. To exit the program select the exit menu option.\n");
+	printf("Adding Funds: Funds can be added to a players profile. However, this can only be done every 24 hours.\n");
+
+	printf("\nClick any key to continue...\n");
+	getchar();
+}
+
+void inputAddFunds(pPLAYER player) {
+	//check the time
+	//get the time stamp from player
+	//if it is less than 24 hours then prompt they cannot do it
+	//if it is more than 24 hours they can add up to $100 to account
+		//Change the time stamp
+
+	struct date currentDate;
+	getdate(&currentDate);
+
+	int between = (player->balanceDate.da_day )
+
+	if)
+
+
 
 }

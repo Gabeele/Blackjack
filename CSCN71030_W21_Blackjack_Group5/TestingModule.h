@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string.h>
+#include <dos.h>
 
 #define NAME_SIZE 100
 
@@ -23,6 +24,8 @@ typedef struct player {
 	double balance;
 	int totalGames;
 	int gamesWon;
+
+	struct date* balanceDate;
 
 }PLAYER, * pPLAYER;
 

@@ -1,8 +1,17 @@
 #include "Player.h"
 
-void createProfile(pPLAYERLIST playerList)
+void initializePlayerList(pPLAYERLIST playerList)
 {
 	playerList->head = NULL;
+}
+void insertNewPlayer(pPLAYERLIST playerList, char* playerName)
+{
+	pNODE newPlayer;
+	strcpy_s(newPlayer->player->name, strlen(playerName), playerName);
+	newPlayer->player->balance = DEFAULT_BALANCE;
+	newPlayer->nextPlayer = playerList->head;
+	playerList->head = newPlayer;
+	sortPlayerList(playerList);
 }
 void deleteProfile(pPLAYERLIST playerList, pNODE profile)
 {

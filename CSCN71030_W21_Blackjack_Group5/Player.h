@@ -4,9 +4,9 @@
 #include <string.h>
 
 #define MAXLENGTH 50
+#define DEFAULT_BALANCE 2000
 typedef struct player
 {
-	int ID;
 	char name[MAXLENGTH];
 	int balance;
 }*pPLAYER;
@@ -22,10 +22,11 @@ typedef struct playerList
 	pNODE head;
 } *pPLAYERLIST;
 
-void createProfile(pPLAYERLIST playerList);
+void initializePlayerList(pPLAYERLIST playerList);
+void insertNewPlayer(pPLAYERLIST playerList, char* playerName);
 void deleteProfile(pPLAYERLIST playerList, pNODE profile);
 void alterName(pNODE profile, char* newName);
 pNODE sortPlayerList(pPLAYERLIST playerList);
 void printPlayerList(pPLAYERLIST playerList);
-pNODE playerSelectByString(char* name);
+pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName)
 void addFund(pNODE profile, int additionalFund);

@@ -1,5 +1,6 @@
 #pragma once
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAXLENGTH 50
 typedef struct player
@@ -12,7 +13,7 @@ typedef struct player
 typedef struct node
 {
 	pPLAYER player;
-	pPLAYER nextPlayer;
+	pNODE nextPlayer;
 }*pNODE;
 
 typedef struct playerList

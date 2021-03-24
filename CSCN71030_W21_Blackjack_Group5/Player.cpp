@@ -101,4 +101,11 @@ pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName)
 	}
 	return currentPlayer;
 }
-void addFund(pNODE profile, int additionalFund);
+void resetBalance(pNODE profile)
+{
+	profile->player->balance = DEFAULT_BALANCE;
+}
+void addFund(pNODE profile, int additionalFund)
+{
+
+}

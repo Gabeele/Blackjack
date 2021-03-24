@@ -28,5 +28,6 @@ void deleteProfile(pPLAYERLIST playerList, pNODE profile);
 void alterName(pNODE profile, char* newName);
 pNODE sortPlayerList(pPLAYERLIST playerList);
 void printPlayerList(pPLAYERLIST playerList);
-pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName)
+pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName);
+void resetBalance(pNODE profile);
 void addFund(pNODE profile, int additionalFund);

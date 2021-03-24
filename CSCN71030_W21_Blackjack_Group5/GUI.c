@@ -9,9 +9,6 @@
 
 #include "GUI.h"
 
-#include "TestingModule.h"
-
-
 //Includes all modules
 
 void printDisclamer() {
@@ -28,7 +25,9 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	int playerIndex;
 
 	if (playerList->head == NULL) {	//When there is no players in the list
-		createPlayerMenu();
+		inputCreatePlayer(playerList);
+
+		return playerList->head;	//Selects the newly inserted player
 	}
 	else {	//If there is any command line arguments
 		pPLAYER playerSelected = playerSelectByString(cmdLnPlayer);
@@ -116,13 +115,49 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 		break;
 	case 6:
 		system("cls");
-		diplayLeaderboard(playerList);
+		displayLeaderboard(playerList);
 		system("cls");
 		break;
 	}
 
 }
 	
+void profileOptions(pPLAYER player) {
+	char name[MAX_NAME_LENGTH];
+
+	do {
+
+		printf("Player Options Menu\n");
+		printf("1) Change name\n");
+		printf("2) View Stats\n");
+		printf("0) Exit\n\n");
+		printf("Enter in a menu option: ");
+
+		int menuInput = intagerValidation();
+
+		if (verifyAbortIntager(menuInput)) {
+			return;
+		}
+
+		switch (menuInput)
+		{
+		case 1:
+			printf("\n\nChange name to: ");
+			scanf_s("%s", name, MAX_NAME_LENGTH);
+
+			changePlayerName(player, name);
+			break;
+		case 2:
+			printPlayer(player);
+			break;
+
+		case 0:
+			return;
+			break;
+		}
+
+	} while (1);
+}
 
 void printPlayer(pPLAYER player) {
 
@@ -143,6 +178,48 @@ void printPlayerList(pPLAYERLIST playerList) {	//Cycles through the prints the l
 
 		counter++;
 	}
+}
+
+void inputCreatePlayer(pPLAYERLIST playerList) {
+
+	char name[MAX_NAME_LENGTH];
+
+	printf("Create Player\n");
+
+	do {
+		scanf_s("%c", name, MAX_NAME_LENGTH);
+
+
+	} while (strlen(name) == 0);
+	
+	if (verifyAbortString(name)) {
+		return;
+	}
+
+	createPlayer(playerList, name);	//add
+
+
+}
+
+void displayLeaderboard(pPLAYERLIST playerList) {
+	int value = 0;
+	pPLAYERNODE node = playerList->head;
+	pPLAYERNODE smallestNode = playerList->head;
+
+	value = node->data;
+
+	while (node != NULL) {
+
+		if (value > node->data) {
+			value = node->data;
+		}
+
+		node = node->nextNode;
+	}
+
+
+
+
 }
 
 void displayLearnToPlay()
@@ -180,19 +257,37 @@ void displayInstructions()
 	getchar();
 }
 
-void inputAddFunds(pPLAYER player) {
-	//check the time
-	//get the time stamp from player
-	//if it is less than 24 hours then prompt they cannot do it
-	//if it is more than 24 hours they can add up to $100 to account
-		//Change the time stamp
+void inputAddBalance(pPLAYER player) {
 
-	struct date currentDate;
-	getdate(&currentDate);
+	int fundAmount = 0;
 
-	int between = (player->balanceDate.da_day )
+	printf("Adding Funds\nEnter in an amount from 0 - 100 to add funds to the account.\n");
 
-	if)
+	do {
+		
+		printf("\nDeposit Amount: ");
+		fundAmount = intagerValidation();
+		if (verifyAbortIntager(fundAmount)) {
+			return;
+		}
+
+	} while (fundAmount >= 0 && fundAmount <= 100);
+
+	if (addFunds(player, fundAmount)) {
+		printf("\nFunds successfully transfered.\n");
+
+	}
+	else {
+		printf("\nYou can only add funds once every 24 hours.\n");
+	}
+
+	printf("\nClick any key to continue...\n");
+	getchar();
+}
+
+void playGame(pPLAYER player) {	//To play the game
+
+
 
 
 

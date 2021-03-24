@@ -14,26 +14,19 @@ int main() {
 	return 0;
 }
 
-pPLAYER createPlayer(char name[], double balance, int totalGames, int gamesWon) {
+
+pPLAYER createPlayer(pPLAYERLIST playerList, char name[]) {
 
 	pPLAYER player;
 
 	strcpy(player->name, name);
-	player->balance = balance;
-	player->totalGames = totalGames;
-	player->gamesWon = gamesWon;
+	player->balance = 100;
+	player->totalGames = 0;
+	player->gamesWon = 0;
 
-	getdate(player->balanceDate);
+	player->timeStamp = time(NULL);
 
 	return player;
-}
-
-pPLAYER createPlayer(char name[], double balance, int totalGames, int gamesWon) {
-
 
 }
 
-pPLAYER createPlayer(char name[], double balance, int totalGames, int gamesWon) {
-
-
-}

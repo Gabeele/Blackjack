@@ -1,7 +1,7 @@
 #pragma once
 
 #include <string.h>
-#include <dos.h>
+#include <time.h>
 
 #define NAME_SIZE 100
 
@@ -25,8 +25,8 @@ typedef struct player {
 	int totalGames;
 	int gamesWon;
 
-	struct date* balanceDate;
+	time_t timeStamp;
 
 }PLAYER, * pPLAYER;
 
-pPLAYER createPlayer(char [], double , int , int);
+pPLAYER createPlayer(pPLAYERLIST , char []);

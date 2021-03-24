@@ -23,11 +23,11 @@ void deleteProfile(pPLAYERLIST playerList, pNODE profile)
 	currentPlayer = NULL;						   //point the current node to null then free it
 	free(currentPlayer);
 }
-void alterName(pPLAYER profile, char* newName)
+void alterName(pNODE profile, char* newName)
 {
-
+	strcpy_s(profile->player->name, strlen(newName), newName);
 }
 void sortPlayerList(pPLAYERLIST playerList);
 void printPlayerList(pPLAYERLIST playerList);
-pPLAYER playerSelectByString(char* name);
-void addFund(pPLAYER profile, int additionalFund);
+pNODE playerSelectByString(char* name);
+void addFund(pNODE profile, int additionalFund);

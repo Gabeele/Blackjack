@@ -23,9 +23,9 @@ typedef struct playerList
 } *pPLAYERLIST;
 
 void createProfile(pPLAYERLIST playerList);
-void deleteProfile(pPLAYERLIST playerList, pPLAYER profile);
-void alterName(pPLAYER profile, char* newName);
+void deleteProfile(pPLAYERLIST playerList, pNODE profile);
+void alterName(pNODE profile, char* newName);
 void sortPlayerList(pPLAYERLIST playerList);
 void printPlayerList(pPLAYERLIST playerList);
-pPLAYER playerSelectByString(char* name);
-void addFund(pPLAYER profile, int additionalFund);
+pNODE playerSelectByString(char* name);
+void addFund(pNODE profile, int additionalFund);

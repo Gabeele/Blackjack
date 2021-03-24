@@ -32,4 +32,3 @@ void inputCreatePlayer(pPLAYERLIST);
 
 int getInput();
 
-//play game functions will create more fuctions

@@ -59,11 +59,10 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 }
 
 void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
-	char name[] = { "Gavin" };
-	int score = 10.50, WLRatio = 1.5;
+	int menuInput;
 
-	printf("Welcome, %s\n", name );
-	printf("Current Balance: %d, Wins/Loss Ratio: %d\n\n", score, WLRatio );
+	printf("Welcome, %s\n", player->name );
+	printf("Current Balance: %d\n", player->balance);
 	printf("1) Learn to Play\n");
 	printf("2) Menu and Operation Instructions\n");
 	printf("3) Add Balance\n");
@@ -75,7 +74,10 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 	printf("Enter a menu option: \n");
 	
 
-	int menuInput = intagerValidation();
+	menuInput = getInput();
+	if (menuInput == NULL) {
+		exit(0);
+	}
 
 	switch (menuInput) {
 
@@ -106,7 +108,7 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 		break;
 	case 5:
 		system("cls");
-		playGame(player);
+		playRound(player);
 		system("cls");
 		break;
 	case 6:
@@ -120,6 +122,7 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 	
 void profileOptions(pPLAYER player) {
 	char name[MAX_NAME_LENGTH];
+	int menuInput;
 
 	do {
 
@@ -129,9 +132,10 @@ void profileOptions(pPLAYER player) {
 		printf("0) Exit\n\n");
 		printf("Enter in a menu option: ");
 
-		int menuInput = intagerValidation();
+		menuInput = getInput();
 
-		if (verifyAbortIntager(menuInput)) {
+
+		if (menuInput == NULL) {
 			return;
 		}
 
@@ -306,25 +310,3 @@ int getInput() {
 
 	return userInput;
 }
-
-		//do {
-
-		//	printf("\nDeposit Amount: ");
-		//	scanf_s(fundAmount);
-		//	if (checkInt(fundAmount) == 0) {	// 0  is good, 1 is bad, abort is 2
-
-		//		if (verifyAbortIntager(fundAmount)) {
-		//			return;
-		//		}
-		//		break;
-		//	}
-		//	else if (verifyAbortIntager(fundAmount) == 1) {
-		//		printf("Inncorrect input...\n");
-		//	}
-		//	else {
-
-		//		return;
-		//	}
-
-
-		//} while (fundAmount >= 0 && fundAmount <= 100);

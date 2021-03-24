@@ -107,5 +107,5 @@ void resetBalance(pNODE profile)
 }
 void addFund(pNODE profile, int additionalFund)
 {
-
+	profile->player->balance += additionalFund;
 }

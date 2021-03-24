@@ -65,6 +65,19 @@ pNODE sortPlayerList(pPLAYERLIST playerList)
 	largestNode->nextPlayer = sortPlayerList(playerList);
 	return largestNode;	//the first node of the sorted list 
 }
-void printPlayerList(pPLAYERLIST playerList);
+void printPlayerList(pPLAYERLIST playerList)
+{
+	if (playerList->head == NULL)
+		return;
+
+	int i = 1;
+	pNODE currentNode = playerList->head;
+	while (playerList->head == NULL)
+	{
+		printf("%d)\t %s\n", i, currentNode->player->name);
+		i++;
+		currentNode = currentNode->nextPlayer;
+	}
+}
 pNODE playerSelectByString(char* name);
 void addFund(pNODE profile, int additionalFund);

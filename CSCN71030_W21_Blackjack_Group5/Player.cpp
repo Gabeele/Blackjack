@@ -79,5 +79,17 @@ void printPlayerList(pPLAYERLIST playerList)
 		currentNode = currentNode->nextPlayer;
 	}
 }
-pNODE playerSelectByString(char* name);
+pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName)
+{
+	if (playerList->head == NULL)
+		return NULL;
+	pNODE currentPlayer = playerList->head;
+	while (strcmp(currentPlayer->player->name, inputName) != 0)
+	{
+		currentPlayer = currentPlayer->nextPlayer;
+		if (currentPlayer == NULL)
+			return NULL;
+	}
+	return currentPlayer;
+}
 void addFund(pNODE profile, int additionalFund);

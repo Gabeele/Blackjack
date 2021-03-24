@@ -19,8 +19,6 @@ void printDisclamer() {
 
 }
 
-
-
 pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	int playerIndex;
 
@@ -59,8 +57,6 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	return getPlayerFromList(playerList, playerIndex);
 
 }
-
-
 
 void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 	char name[] = { "Gavin" };
@@ -220,6 +216,10 @@ void displayLeaderboard(pPLAYERLIST playerList) {
 
 
 
+
+
+
+
 }
 
 void displayLearnToPlay()
@@ -290,5 +290,5 @@ void playGame(pPLAYER player) {	//To play the game
 
 
 
-
+	//
 }

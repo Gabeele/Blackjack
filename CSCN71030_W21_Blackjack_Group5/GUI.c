@@ -38,13 +38,12 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 
 				printf("Select a Player Number: ");
 				
-				playerIndex = integerValdation();	//Input validation
+				int playerIndex = getInput();
 
-				if (verifyAbortIntager(playerIndex)) {	//Verifies abort intager
+				if (playerIndex == NULL) {
 					return;
 				}
 
-				playerIndex--;	
 
 			} while (playerIndex >= playerListLength(playerList) || playerIndex < 0);
 		 }
@@ -65,10 +64,9 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 	printf("Current Balance: %d\n", player->balance);
 	printf("1) Learn to Play\n");
 	printf("2) Menu and Operation Instructions\n");
-	printf("3) Add Balance\n");
-	printf("4) Profile Options\n");
-	printf("5) Play Game\n");
-	printf("6) View Leaderboard\n");
+	printf("3) Profile Options\n");
+	printf("4) Play Game\n");
+	printf("5) View Leaderboard\n");
 	printf("0) Quit\n\n");
 
 	printf("Enter a menu option: \n");
@@ -96,22 +94,22 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 		displayInstructions();
 		system("cls");
 		break;
-	case 3:
+	case 43:
 		system("cls");
-		inputAddBalance(player);
+		profileOptions(player);
+
+		if (player == NULL) {
+			return;
+		}
+
 		system("cls");
 		break;
 	case 4:
 		system("cls");
-		profileOptions(player);
-		system("cls");
-		break;
-	case 5:
-		system("cls");
 		playRound(player);
 		system("cls");
 		break;
-	case 6:
+	case 5:
 		system("cls");
 		displayLeaderboard(playerList);
 		system("cls");
@@ -129,6 +127,7 @@ void profileOptions(pPLAYER player) {
 		printf("Player Options Menu\n");
 		printf("1) Change name\n");
 		printf("2) View Stats\n");
+		printf("3) Delete Account\n");
 		printf("0) Exit\n\n");
 		printf("Enter in a menu option: ");
 
@@ -150,6 +149,13 @@ void profileOptions(pPLAYER player) {
 		case 2:
 			printPlayer(player);
 			break;
+		case 3:
+			printf("\nDeleting account is ireversible, and will exit the program. Click any key to continue...");
+			getchar();
+
+			deleteProfile(player);
+			
+			return;
 
 		case 0:
 			return;
@@ -187,7 +193,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 	printf("Create Player\n");
 
 	do {
-		scanf_s("%c", name, MAX_NAME_LENGTH);
+		scanf_s("%s", name, MAX_NAME_LENGTH);
 
 
 	} while (strlen(name) == 0);
@@ -196,7 +202,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		return;
 	}
 
-	createPlayer(playerList, name);	//add
+	createPlayer(name);	//add
 
 
 }

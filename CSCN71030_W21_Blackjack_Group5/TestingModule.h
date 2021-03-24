@@ -21,12 +21,14 @@ typedef struct playerNode {
 typedef struct player {
 
 	char name[NAME_SIZE];
-	double balance;
-	int totalGames;
-	int gamesWon;
+	int balance;
 
-	time_t timeStamp;
 
 }PLAYER, * pPLAYER;
 
-pPLAYER createPlayer(pPLAYERLIST , char []);
+
+pPLAYER createPlayer(char name[]);
+
+pPLAYERNODE createNode(pPLAYER player);
+
+pPLAYERLIST createList();

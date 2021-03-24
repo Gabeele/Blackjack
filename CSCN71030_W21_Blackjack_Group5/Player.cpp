@@ -4,23 +4,30 @@ void initializePlayerList(pPLAYERLIST playerList)
 {
 	playerList->head = NULL;
 }
-void insertNewPlayer(pPLAYERLIST playerList, char* playerName)
+pPLAYER createPlayer(char* name)
 {
-	pNODE newPlayer;
-	strcpy_s(newPlayer->player->name, strlen(playerName), playerName);
-	newPlayer->player->balance = DEFAULT_BALANCE;
-	newPlayer->nextPlayer = playerList->head;
-	playerList->head = newPlayer;
+	pPLAYER newPlayer;
+	strcpy_s(newPlayer->name, strlen(name), name);
+	newPlayer->balance = DEFAULT_BALANCE;
+
+	return newPlayer;
+}
+void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer)
+{
+	pNODE newNode;
+	newNode->player = newPlayer;
+	newNode->nextPlayer = playerList->head;
+	playerList->head = newNode;
 	sortPlayerList(playerList);
 }
-void deleteProfile(pPLAYERLIST playerList, pNODE profile)
+void deleteProfile(pPLAYERLIST playerList, pPLAYER profile)
 {
 	if (playerList->head == NULL)
 		return;
 
 	pNODE prev = NULL;
 	pNODE currentPlayer = playerList->head;
-	while (strcmp(currentPlayer->player->name, profile->player->name)!=0)
+	while (strcmp(currentPlayer->player->name, profile->name)!=0)
 	{
 		prev = currentPlayer;
 		currentPlayer = currentPlayer->nextPlayer;

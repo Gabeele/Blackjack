@@ -88,7 +88,7 @@ void printPlayerList(pPLAYERLIST playerList)
 		currentNode = currentNode->nextPlayer;
 	}
 }
-pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName)
+pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 {
 	if (playerList->head == NULL)
 		return NULL;
@@ -99,13 +99,13 @@ pNODE playerSelectByString(pPLAYERLIST playerList, char* inputName)
 		if (currentPlayer == NULL)
 			return NULL;
 	}
-	return currentPlayer;
+	return currentPlayer->player;
 }
-void resetBalance(pNODE profile)
+void resetBalance(pPLAYER profile)
 {
-	profile->player->balance = DEFAULT_BALANCE;
+	profile->balance = DEFAULT_BALANCE;
 }
-void addFund(pNODE profile, int additionalFund)
+void addFund(pPLAYER profile, int additionalFund)
 {
-	profile->player->balance += additionalFund;
+	profile->balance += additionalFund;
 }

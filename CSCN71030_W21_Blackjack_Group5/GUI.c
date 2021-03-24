@@ -13,7 +13,7 @@
 
 void printDisclamer() {
 
-	printf("Type 0000 or Exit at any time to return and exit the program.\nPress any button to continue...");
+	printf("Type 0000 at any time to return and exit the program.\nPress any button to continue...");
 	getchar();
 	system("cls");
 
@@ -28,7 +28,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 		return playerList->head;	//Selects the newly inserted player
 	}
 	else {	//If there is any command line arguments
-		pPLAYER playerSelected = playerSelectByString(cmdLnPlayer);
+		pPLAYER playerSelected = playerSelectByString(playerList, cmdLnPlayer);
 
 		if (playerSelected == NULL) {	//Check if there is a player by that name
 			
@@ -157,7 +157,7 @@ void profileOptions(pPLAYER player) {
 
 void printPlayer(pPLAYER player) {
 
-	printf("%s - $%d %d\n", player->name, player->balance, player->gamesWon/(player->totalGames - player->gamesWon));
+	printf("%s - $%d %d\n", player->name, player->balance);
 
 }
 
@@ -188,7 +188,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 
 	} while (strlen(name) == 0);
 	
-	if (verifyAbortString(name)) {
+	if (checkAbort(name)) {
 		return;
 	}
 
@@ -198,28 +198,24 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 }
 
 void displayLeaderboard(pPLAYERLIST playerList) {
-	int value = 0;
-	pPLAYERNODE node = playerList->head;
-	pPLAYERNODE smallestNode = playerList->head;
 
-	value = node->data;
+	sortList(playerList);
+
+	printf("Leaderboard\n\n");
+	
+	int counter = 1;
+
+	pPLAYERNODE node = playerList->head;
 
 	while (node != NULL) {
 
-		if (value > node->data) {
-			value = node->data;
-		}
+		printf("%d) %s - $%d\n", counter, node->data->name, node->data->balance);
 
-		node = node->nextNode;
+		node->nextNode;
+
+		counter++;
 	}
-
-
-
-
-
-
-
-
+	
 }
 
 void displayLearnToPlay()
@@ -257,38 +253,78 @@ void displayInstructions()
 	getchar();
 }
 
-void inputAddBalance(pPLAYER player) {
+int refillBalancePrompt(pPLAYER player) {
 
-	int fundAmount = 0;
+	int menuOption = 0;
 
-	printf("Adding Funds\nEnter in an amount from 0 - 100 to add funds to the account.\n");
+	printf("Balance Notice\nBalance is 0, would you like to reset it to the default?\n");
+	printf("1) Yes\n");
+	printf("2) No\n");
 
-	do {
-		
-		printf("\nDeposit Amount: ");
-		fundAmount = intagerValidation();
-		if (verifyAbortIntager(fundAmount)) {
-			return;
-		}
-
-	} while (fundAmount >= 0 && fundAmount <= 100);
-
-	if (addFunds(player, fundAmount)) {
-		printf("\nFunds successfully transfered.\n");
-
+	menuOption = getInput();
+	if (menuOption == NULL) {
+		return;
 	}
-	else {
-		printf("\nYou can only add funds once every 24 hours.\n");
+
+	switch (menuOption)
+	{
+	case 1:
+
+		resetBalance(player);
+		break;
+	case 2:
+		break;
+
 	}
 
 	printf("\nClick any key to continue...\n");
 	getchar();
 }
 
-void playGame(pPLAYER player) {	//To play the game
+int getInput() {
+	int userInput;
 
+	do {
 
+		printf("\nEnter Option: ");
+		scanf_s("%d",userInput, MAX_INPUT);
 
+		if (checkInt(userInput) == 0) {// 0  is good, 1 is bad, abort is 2
 
-	//
+			break;
+		}
+		else if (checkInt(userInput) == 1) {
+
+			printf("Inncorrect input...\n");
+		}
+		else if (checkInt(userInput) == 2) {
+
+			return NULL;
+		}
+
+	} while (1);
+
+	return userInput;
 }
+
+		//do {
+
+		//	printf("\nDeposit Amount: ");
+		//	scanf_s(fundAmount);
+		//	if (checkInt(fundAmount) == 0) {	// 0  is good, 1 is bad, abort is 2
+
+		//		if (verifyAbortIntager(fundAmount)) {
+		//			return;
+		//		}
+		//		break;
+		//	}
+		//	else if (verifyAbortIntager(fundAmount) == 1) {
+		//		printf("Inncorrect input...\n");
+		//	}
+		//	else {
+
+		//		return;
+		//	}
+
+
+		//} while (fundAmount >= 0 && fundAmount <= 100);

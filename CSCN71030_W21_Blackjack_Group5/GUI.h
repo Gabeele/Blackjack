@@ -8,6 +8,7 @@
 
 #define MAX_NAME_LENGTH 100
 #define  LEADERBOARD_COUNT 10
+#define MAX_INPUT 10
 
 void printDisclamer();
 
@@ -27,8 +28,8 @@ void leaderboard(pPLAYERLIST);
 
 void displayInstructions();
 
-void playGame();
+void inputCreatePlayer(pPLAYERLIST);
 
-void inputCreatePlayer(pPLAYERLIST)
+int getInput();
 
 //play game functions will create more fuctions

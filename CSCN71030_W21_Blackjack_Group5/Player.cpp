@@ -27,7 +27,44 @@ void alterName(pNODE profile, char* newName)
 {
 	strcpy_s(profile->player->name, strlen(newName), newName);
 }
-void sortPlayerList(pPLAYERLIST playerList);
+pNODE sortPlayerList(pPLAYERLIST playerList)
+{
+	if (playerList->head == NULL || playerList->head->nextPlayer == NULL)	//1-node playerList
+		return;
+
+	//find the node that has the largest value
+	pNODE currentNode = playerList->head;
+	pNODE largestNode = playerList->head;
+	pNODE prevofCurrentNode = playerList->head;
+	pNODE prevOfLargestNode = playerList->head;
+	pNODE headNode = playerList->head;
+
+	while (currentNode != NULL)
+	{
+		if (currentNode->player->balance > largestNode->player->balance)
+		{
+			prevOfLargestNode = prevofCurrentNode;
+			largestNode = currentNode;
+		}
+		prevofCurrentNode = currentNode;
+		currentNode = currentNode->nextPlayer;
+	} //largest node is found
+
+	//switch the first node with the largest node
+	pNODE tmp;
+	if (largestNode != playerList->head)
+	{
+		tmp = headNode->nextPlayer;
+		prevOfLargestNode->nextPlayer = headNode;
+		headNode->nextPlayer = largestNode->nextPlayer;
+		largestNode->nextPlayer = tmp;
+	}//now the largest node is the first node of the list
+
+	//do the same thing for the rest of the list by calling the function again with the sub list
+	playerList->head = largestNode->nextPlayer;
+	largestNode->nextPlayer = sortPlayerList(playerList);
+	return largestNode;	//the first node of the sorted list 
+}
 void printPlayerList(pPLAYERLIST playerList);
 pNODE playerSelectByString(char* name);
 void addFund(pNODE profile, int additionalFund);

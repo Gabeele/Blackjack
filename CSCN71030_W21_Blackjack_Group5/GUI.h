@@ -20,13 +20,15 @@ void displayLearnToPlay();
 
 void displayInstructions();
 
-void inputAddFunds(pPlayer);
+void profileOptions(pPLAYER);
 
-void printPlayer(pPLayer);
+void inputAddFunds(pPLAYER);
 
-void leaderboard(pPLAYERLIST);
+void printPlayer(pPLAYER);
 
-void displayInstructions();
+void printPlayerList(pPLAYERLIST);
+
+void displayLeaderboard(pPLAYERLIST);
 
 void inputCreatePlayer(pPLAYERLIST);
 

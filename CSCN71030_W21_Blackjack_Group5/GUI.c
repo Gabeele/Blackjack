@@ -20,7 +20,7 @@ void printDisclamer() {
 }
 
 pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
-	int playerIndex;
+	int playerIndex = 0;
 
 	if (playerList->head == NULL) {	//When there is no players in the list
 		inputCreatePlayer(playerList);
@@ -38,7 +38,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 
 				printf("Select a Player Number: ");
 				
-				int playerIndex = getInput();
+				playerIndex = getInput();
 
 				if (playerIndex == NULL) {
 					return;
@@ -178,7 +178,7 @@ void printPlayerList(pPLAYERLIST playerList) {	//Cycles through the prints the l
 
 	while (node != NULL) {
 		
-		printf("%d) %s\n", counter, node->data->name);
+		printf("%d) %s\n", counter, getName(node->data));
 
 		node->nextNode;
 
@@ -219,9 +219,9 @@ void displayLeaderboard(pPLAYERLIST playerList) {
 
 	while (node != NULL) {
 
-		printf("%d) %s - $%d\n", counter, node->data->name, node->data->balance);
+		printf("%d) %s - $%d\n", counter, getName(node->data), getBalance(node->data));
 
-		node->nextNode;
+		node = node->nextNode;
 
 		counter++;
 	}
@@ -292,7 +292,7 @@ int refillBalancePrompt(pPLAYER player) {
 }
 
 int getInput() {
-	int userInput;
+	int userInput = 0;
 
 	do {
 

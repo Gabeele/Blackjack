@@ -2,18 +2,24 @@
 //
 //Group 5
 
-#define CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+
 
 #include "GUI.h"
-
-#include "TestingModule.h"
 
 int main() {
 
 
+	pPLAYER player1 = createPlayer("Gavin");
+	pPLAYERNODE node1 = createNode(player1);
+	pPLAYERLIST list = createList();
 
 
-	mainMenu();
+
+	list->head = node1;
+
+	pPLAYER player = PlayerSelectMenu("", list);
+	mainMenu(list, player1);
 
 
 	return 0;
@@ -55,11 +61,12 @@ pPLAYERLIST createList() {
 
 pPLAYER playerSelectByString(pPLAYERLIST list, char input[]) {
 
-	pPLAYERNODE node = list->head;
+	pPLAYERNODE node;
+	node = list->head;
 
 	while (node != NULL) {
 
-		if (strcmp(node->data->name, input) == 0) {
+		if (strcmp(getName(node->data), input) == 0) {
 
 			return node;
 		}
@@ -107,7 +114,6 @@ pPLAYER getPlayerFromList(pPLAYERLIST list, int index) {
 
 	return NULL;
 
-
 }
 
 int checkInt(int input) {
@@ -144,4 +150,14 @@ void sortList(pPLAYERLIST list) {
 void resetBalance(pPLAYER player) {
 
 	printf("\nBalance Reset\n");
+}
+
+int getBalance(pPLAYER player) {
+
+	return player->balance;
+}
+
+char* getName(pPLAYER player) {
+
+	return *player->name;
 }

@@ -7,16 +7,16 @@
 
 typedef struct playerList {
 
-	pPLAYERNODE head;
+	struct PLAYERNODE *head;
 
-}PLAYERLIST, * pPLAYERLIST;
+}PLAYERLIST, *pPLAYERLIST;
 
 typedef struct playerNode {
 
-	pPLAYER data;
-	pPLAYERNODE nextNode;
+	struct PLAYER *data;
+	struct PLAYERNODE *nextNode;
 
-}PLAYERNODE, * pPLAYERNODE;
+}PLAYERNODE, *pPLAYERNODE;
 
 typedef struct player {
 
@@ -24,11 +24,35 @@ typedef struct player {
 	int balance;
 
 
-}PLAYER, * pPLAYER;
-
+}PLAYER, *pPLAYER;
 
 pPLAYER createPlayer(char name[]);
 
 pPLAYERNODE createNode(pPLAYER player);
 
 pPLAYERLIST createList();
+
+pPLAYER playerSelectByString(pPLAYERLIST list, char input[]);
+
+int playerListLength(pPLAYERLIST list);
+
+pPLAYER getPlayerFromList(pPLAYERLIST list, int index);
+
+int checkInt(int input);
+
+int checkAbort(char name[]);
+
+void playRound(pPLAYER player);
+
+void changePlayerName(pPLAYER player, char name[]);
+
+void deleteProfile(pPLAYER player);
+
+void sortList(pPLAYERLIST list);
+
+void resetBalance(pPLAYER player);
+
+int getBalance(pPLAYER player);
+
+char* getName(pPLAYER player);
+

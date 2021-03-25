@@ -23,9 +23,10 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	int playerIndex = 0;
 
 	if (playerList->head == NULL) {	//When there is no players in the list
-		inputCreatePlayer(playerList);
+		inputCreatePlayer(playerList);	
 
-		return playerList->head;	//Selects the newly inserted player
+		system("cls");
+		return getPlayer(playerList->head);	//Selects the newly inserted player
 	}
 	else {	//If there is any command line arguments
 		pPLAYER playerSelected = playerSelectByString(playerList, cmdLnPlayer);
@@ -53,69 +54,68 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 
 	}
 
+	system("cls");
 	return getPlayerFromList(playerList, playerIndex);
 
 }
 
 void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
-	int menuInput;
-
-	printf("Welcome, %s\n", player->name );
-	printf("Current Balance: %d\n", player->balance);
-	printf("1) Learn to Play\n");
-	printf("2) Menu and Operation Instructions\n");
-	printf("3) Profile Options\n");
-	printf("4) Play Game\n");
-	printf("5) View Leaderboard\n");
-	printf("0) Quit\n\n");
-
-	printf("Enter a menu option: \n");
+	do {	
+		int menuInput;
 	
+		printf("Welcome, %s\n", player->name );
+		printf("Current Balance: %d\n", player->balance);
+		printf("\t1) Learn to Play\n");
+		printf("\t2) Menu and Operation Instructions\n");
+		printf("\t3) Profile Options\n");
+		printf("\t4) Play Game\n");
+		printf("\t5) View Leaderboard\n");
+		printf("\t0) Quit\n");
 
-	menuInput = getInput();
-	if (menuInput == NULL) {
-		exit(0);
-	}
-
-	switch (menuInput) {
-
-	case 0:
-		//save the profile list
-		exit(0);
-		break;
-
-	case 1:
-		system("cls");
-		displayLearnToPlay();
-		system("cls");
-		break;
-	case 2:
-		system("cls");
-		displayInstructions();
-		system("cls");
-		break;
-	case 43:
-		system("cls");
-		profileOptions(player);
-
-		if (player == NULL) {
+		menuInput = getInput();
+		if (menuInput == NULL) {
 			return;
 		}
 
-		system("cls");
-		break;
-	case 4:
-		system("cls");
-		playRound(player);
-		system("cls");
-		break;
-	case 5:
-		system("cls");
-		displayLeaderboard(playerList);
-		system("cls");
-		break;
-	}
+		switch (menuInput) {
 
+		case 0:
+			//save the profile list
+			return;
+			break;
+
+		case 1:
+			system("cls");
+			displayLearnToPlay();
+
+			break;
+		case 2:
+			system("cls");
+			displayInstructions();
+
+			break;
+		case 43:
+			system("cls");
+			profileOptions(player);
+
+			if (player == NULL) {
+				return;
+			}
+
+			break;
+		case 4:
+			system("cls");
+			playRound(player);
+
+			break;
+		case 5:
+			system("cls");
+			displayLeaderboard(playerList);
+
+			break;
+		}
+
+	} while (1);
 }
 	
 void profileOptions(pPLAYER player) {
@@ -125,11 +125,10 @@ void profileOptions(pPLAYER player) {
 	do {
 
 		printf("Player Options Menu\n");
-		printf("1) Change name\n");
-		printf("2) View Stats\n");
-		printf("3) Delete Account\n");
-		printf("0) Exit\n\n");
-		printf("Enter in a menu option: ");
+		printf("\t1) Change name\n");
+		printf("\t2) View Stats\n");
+		printf("\t3) Delete Account\n");
+		printf("\t0) Exit\n\n");
 
 		menuInput = getInput();
 
@@ -190,9 +189,11 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 
 	char name[MAX_NAME_LENGTH];
 
-	printf("Create Player\n");
+	printf("------Create Player-----\n\n");
 
 	do {
+		printf("\tDefault Balance: %d\n", DEFAULT_BALANCE);
+		printf("\tEnter Player Name: ");
 		scanf_s("%s", name, MAX_NAME_LENGTH);
 
 
@@ -202,9 +203,9 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		return;
 	}
 
-	createPlayer(name);	//add
+	createPlayer(playerList, name);	//TODO: Change parameters
 
-
+	printf("Enter Player Name: ");
 }
 
 void displayLeaderboard(pPLAYERLIST playerList) {
@@ -247,9 +248,11 @@ void displayLearnToPlay()
 	printf("\t 3) Based on the your hand and the dealers hand, determine whether to hit or stand.\n");
 	printf("\t 4) Repeat step 3 until everyone holds.\n");
 	printf("\t 5) Cards are then tallied and a winner is determined\n");
+	printf("\n");
+	printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+	printf("\n");
 
-	printf("\nClick any key to continue...\n");
-	getchar();
+	
 }
 
 void displayInstructions()
@@ -259,8 +262,10 @@ void displayInstructions()
 	printf("Exiting: To back out at any time enter in 0000 to return to the menu. To exit the program select the exit menu option.\n");
 	printf("Adding Funds: Funds can be added to a players profile. However, this can only be done every 24 hours.\n");
 
-	printf("\nClick any key to continue...\n");
-	getchar();
+	printf("\n");
+	printf("--------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+	printf("\n");
+
 }
 
 int refillBalancePrompt(pPLAYER player) {
@@ -297,7 +302,7 @@ int getInput() {
 	do {
 
 		printf("\nEnter Option: ");
-		scanf_s("%d",userInput, MAX_INPUT);
+		scanf_s("%d",&userInput, MAX_INPUT);
 
 		if (checkInt(userInput) == 0) {// 0  is good, 1 is bad, abort is 2
 

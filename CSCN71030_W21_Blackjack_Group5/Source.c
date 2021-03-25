@@ -10,29 +10,50 @@
 int main() {
 
 
-	pPLAYER player1 = createPlayer("Gavin");
-	pPLAYERNODE node1 = createNode(player1);
+	//pPLAYER player1 = createPlayer("Gavin");
+	//pPLAYERNODE node1 = createNode(player1);
 	pPLAYERLIST list = createList();
 
 
 
-	list->head = node1;
+	//list->head = node1;
 
 	pPLAYER player = PlayerSelectMenu("", list);
-	mainMenu(list, player1);
+	mainMenu(list, player);
 
 
 	return 0;
 }
 
 
-pPLAYER createPlayer(char name[]) {
+pPLAYER createPlayer(pPLAYERLIST list, char name[]) {
 
 	pPLAYER player = (pPLAYER)malloc(sizeof(pPLAYER));
 
 	
 	strcpy(player->name, name);
 	player->balance = 100;
+
+	pPLAYERNODE node = createNode(player);
+
+	pPLAYERNODE nodeTemp = list->head;
+
+	if (nodeTemp == NULL) {
+		list->head = node;
+	}
+	else {
+		while (nodeTemp != NULL) {
+
+			if (nodeTemp->nextNode == NULL) {
+
+				nodeTemp->nextNode = node;
+				break;
+			}
+
+			nodeTemp = nodeTemp->nextNode;
+
+		}
+	}
 
 	return player;
 
@@ -116,9 +137,14 @@ pPLAYER getPlayerFromList(pPLAYERLIST list, int index) {
 
 }
 
+pPLAYER getPlayer(pPLAYERNODE node) {
+
+	return node->data;
+}
+
 int checkInt(int input) {
 
-	return input;
+	return 0;
 }
 
 int checkAbort(char name[]) {

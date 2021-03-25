@@ -4,6 +4,7 @@
 #include <time.h>
 
 #define NAME_SIZE 100
+#define DEFAULT_BALANCE 2000
 
 typedef struct playerList {
 
@@ -26,7 +27,7 @@ typedef struct player {
 
 }PLAYER, *pPLAYER;
 
-pPLAYER createPlayer(char name[]);
+pPLAYER createPlayer(pPLAYERLIST, char []);
 
 pPLAYERNODE createNode(pPLAYER player);
 
@@ -55,4 +56,6 @@ void resetBalance(pPLAYER player);
 int getBalance(pPLAYER player);
 
 char* getName(pPLAYER player);
+
+pPLAYER getPlayer(pPLAYERNODE);
 

@@ -9,14 +9,12 @@
 
 int main() {
 
-
-	//pPLAYER player1 = createPlayer("Gavin");
-	//pPLAYERNODE node1 = createNode(player1);
 	pPLAYERLIST list = createList();
+	//pPLAYER player1 = addPlayer(list, "Gavin");
+	//pPLAYER player2 = addPlayer(list, "Sarah");
+	//pPLAYER player3 = addPlayer(list, "Alex");
 
 
-
-	//list->head = node1;
 
 	pPLAYER player = PlayerSelectMenu("", list);
 	mainMenu(list, player);
@@ -25,21 +23,16 @@ int main() {
 	return 0;
 }
 
+pPLAYER addPlayer(pPLAYERLIST list, char name[]) {
 
-pPLAYER createPlayer(pPLAYERLIST list, char name[]) {
-
-	pPLAYER player = (pPLAYER)malloc(sizeof(pPLAYER));
-
-	
-	strcpy(player->name, name);
-	player->balance = 100;
+	pPLAYER player = createPlayer(name);
 
 	pPLAYERNODE node = createNode(player);
 
 	pPLAYERNODE nodeTemp = list->head;
 
-	if (nodeTemp == NULL) {
-		list->head = node;
+	if (list->head == NULL) {
+		list->head = node;	
 	}
 	else {
 		while (nodeTemp != NULL) {
@@ -54,6 +47,19 @@ pPLAYER createPlayer(pPLAYERLIST list, char name[]) {
 
 		}
 	}
+
+
+	return player;
+
+}
+
+
+pPLAYER createPlayer( char name[]) {
+
+	pPLAYER player = (pPLAYER)malloc(sizeof(pPLAYER));
+
+	strcpy(player->name, name);
+	player->balance = DEFAULT_BALANCE;
 
 	return player;
 
@@ -163,6 +169,8 @@ void changePlayerName(pPLAYER player, char name[]) {
 }
 
 void deleteProfile(pPLAYER player) {
+
+	//free(player);
 
 	printf("\nProfile Deleted\n");
 }

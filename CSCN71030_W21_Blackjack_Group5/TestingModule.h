@@ -27,7 +27,7 @@ typedef struct player {
 
 }PLAYER, *pPLAYER;
 
-pPLAYER createPlayer(pPLAYERLIST, char []);
+pPLAYER createPlayer( char []);
 
 pPLAYERNODE createNode(pPLAYER player);
 
@@ -58,4 +58,6 @@ int getBalance(pPLAYER player);
 char* getName(pPLAYER player);
 
 pPLAYER getPlayer(pPLAYERNODE);
+
+pPLAYER addPlayer(pPLAYERLIST, char[]);
 

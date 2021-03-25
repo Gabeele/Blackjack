@@ -23,6 +23,8 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	int playerIndex = 0;
 
 	if (playerList->head == NULL) {	//When there is no players in the list
+
+		printf("ATTENTION: There are no players initalized, creating new player...\n\n");
 		inputCreatePlayer(playerList);	
 
 		system("cls");
@@ -94,11 +96,11 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 			displayInstructions();
 
 			break;
-		case 43:
+		case 3:
 			system("cls");
 			profileOptions(player);
 
-			if (player == NULL) {
+			if (player == NULL) {	//If the player gets deleted then program needs to save and exit.
 				return;
 			}
 
@@ -149,8 +151,7 @@ void profileOptions(pPLAYER player) {
 			printPlayer(player);
 			break;
 		case 3:
-			printf("\nDeleting account is ireversible, and will exit the program. Click any key to continue...");
-			getchar();
+			printf("\nDeleting account is ireversible, and will exit the program.");
 
 			deleteProfile(player);
 			
@@ -162,11 +163,13 @@ void profileOptions(pPLAYER player) {
 		}
 
 	} while (1);
+
+	system("cls");
 }
 
 void printPlayer(pPLAYER player) {
 
-	printf("%s - $%d %d\n", player->name, player->balance);
+	printf("%s - $%d\n", player->name, player->balance);
 
 }
 
@@ -203,7 +206,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		return;
 	}
 
-	createPlayer(playerList, name);	//TODO: Change parameters
+	addPlayer(playerList, name);	//TODO: Change parameters
 
 	printf("Enter Player Name: ");
 }

@@ -14,19 +14,19 @@ typedef struct player
 typedef struct node
 {
 	pPLAYER player;
-	pNODE nextPlayer;
+	struct node* nextPlayer;
 }*pNODE;
 
 typedef struct playerList
 {
 	pNODE head;
-} *pPLAYERLIST;
+}PLAYERLIST,*pPLAYERLIST;
 
-void initializePlayerList(pPLAYERLIST playerList);
+pPLAYERLIST initializePlayerList();
 pPLAYER createPlayer(char* name);
 void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer);
 void deleteProfile(pPLAYERLIST playerList, pPLAYER profile);
-void alterName(pNODE profile, char* newName);
+void alterName(pPLAYER profile, char* newName);
 pNODE sortPlayerList(pPLAYERLIST playerList);
 void printPlayerList(pPLAYERLIST playerList);
 pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName);

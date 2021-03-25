@@ -1,12 +1,14 @@
 #include "Player.h"
 
-void initializePlayerList(pPLAYERLIST playerList)
+pPLAYERLIST initializePlayerList()
 {
-	playerList->head = NULL;
+	pPLAYERLIST newPlayerList = (pPLAYERLIST)malloc(sizeof(PLAYERLIST));
+	newPlayerList->head = NULL;
+	return newPlayerList;
 }
 pPLAYER createPlayer(char* name)
 {
-	pPLAYER newPlayer;
+	pPLAYER newPlayer = NULL;
 	strcpy_s(newPlayer->name, strlen(name), name);
 	newPlayer->balance = DEFAULT_BALANCE;
 
@@ -14,7 +16,7 @@ pPLAYER createPlayer(char* name)
 }
 void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer)
 {
-	pNODE newNode;
+	pNODE newNode = NULL;
 	newNode->player = newPlayer;
 	newNode->nextPlayer = playerList->head;
 	playerList->head = newNode;
@@ -25,7 +27,7 @@ void deleteProfile(pPLAYERLIST playerList, pPLAYER profile)
 	if (playerList->head == NULL)
 		return;
 
-	pNODE prev = NULL;
+	pNODE prev = playerList->head;
 	pNODE currentPlayer = playerList->head;
 	while (strcmp(currentPlayer->player->name, profile->name)!=0)
 	{
@@ -39,14 +41,14 @@ void deleteProfile(pPLAYERLIST playerList, pPLAYER profile)
 	currentPlayer = NULL;						   //point the current node to null then free it
 	free(currentPlayer);
 }
-void alterName(pNODE profile, char* newName)
+void alterName(pPLAYER profile, char* newName)
 {
-	strcpy_s(profile->player->name, strlen(newName), newName);
+	strcpy_s(profile->name, strlen(newName), newName);
 }
 pNODE sortPlayerList(pPLAYERLIST playerList)
 {
 	if (playerList->head == NULL || playerList->head->nextPlayer == NULL)	//1-node playerList
-		return;
+		return NULL;
 
 	//find the node that has the largest value
 	pNODE currentNode = playerList->head;

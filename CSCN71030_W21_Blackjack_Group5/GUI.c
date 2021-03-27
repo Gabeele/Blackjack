@@ -61,12 +61,12 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 
 }
 
-void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
+void mainMenu(pPLAYERLIST playerList, pPLAYER player) {	//Displays the main menu 
 	do {	
 		int menuInput;
 	
-		printf("Welcome, %s\n", player->name );
-		printf("Current Balance: %d\n", player->balance);
+		printf("Welcome, %s\n", getName(player) );
+		printf("Current Balance: %d\n", getbalance(player));
 		printf("\t1) Learn to Play\n");
 		printf("\t2) Menu and Operation Instructions\n");
 		printf("\t3) Profile Options\n");
@@ -120,7 +120,7 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {
 	} while (1);
 }
 	
-void profileOptions(pPLAYER player) {
+void profileOptions(pPLAYER player) {	//Displays the list of things the player can change of their profile
 	char name[MAX_NAME_LENGTH];
 	int menuInput;
 
@@ -200,7 +200,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		scanf_s("%s", name, MAX_NAME_LENGTH);
 
 
-	} while (strlen(name) == 0);
+	} while (strlen(name) == 0);	//While the string length is 0 loop this
 	
 	if (checkAbort(name)) {
 		return;
@@ -211,7 +211,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 	printf("Enter Player Name: ");
 }
 
-void displayLeaderboard(pPLAYERLIST playerList) {
+void displayLeaderboard(pPLAYERLIST playerList) {	
 
 	sortList(playerList);
 
@@ -271,7 +271,7 @@ void displayInstructions()
 
 }
 
-int refillBalancePrompt(pPLAYER player) {
+int refillBalancePrompt(pPLAYER player) {	//Has the user refill their balances 
 
 	int menuOption = 0;
 
@@ -295,11 +295,9 @@ int refillBalancePrompt(pPLAYER player) {
 
 	}
 
-	printf("\nClick any key to continue...\n");
-	getchar();
 }
 
-int getInput() {
+int getInput() {	//Interfaces with the user to get input and checks conditions.
 	int userInput = 0;
 
 	do {

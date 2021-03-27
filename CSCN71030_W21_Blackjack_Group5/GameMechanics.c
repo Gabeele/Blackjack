@@ -73,7 +73,7 @@ void playRound(int balance, card deck[numDeck]) // ***Add Player from player Mod
 	int bet = 0;
 	int newCard = 0;
 
-	bet = userBet(balance,bet);
+	bet = userBet(balance);
 	sum(deck, &playerSum, &dealerSum, &newCard);
 
 	if (playerTurn(deck, &playerSum, &newCard))
@@ -92,6 +92,7 @@ void playRound(int balance, card deck[numDeck]) // ***Add Player from player Mod
 	{
 		balance -= bet;
 	}
+	printf("End of the Round\n");
 
 	// ***Potentially call GUI leaderboard (depending on implementation)
 }
@@ -106,9 +107,13 @@ int deal(card deck[], int* cardName)
 
 int playerTurn(card deck[], int* playerSum, int* newCard) // ***Add player from player module in decloration***
 {
-	int option = 1; // Hardcoded option, 1 = hit, 2 = stand
+	int option;
 	do
 	{
+		printf("It is the Players Turn\n");
+		printf("Chose your move: [1] Hit or [2] Stand\n");
+		scanf_s("%d", &option);
+
 		// ***Call function to validate input here from Error Checking Module***
 
 		if (option == 1)
@@ -127,15 +132,19 @@ int playerTurn(card deck[], int* playerSum, int* newCard) // ***Add player from 
 
 	// ***Call file I/O function here to write changes to .txt file***
 
+	printf("\nPlayer has whent bust, Player losees.\n");
 	return 0;
 }
 
 int dealerTurn(card deck[], int* dealerSum, int* newCard)
 {
+	printf("It is the Dealer's turn\n");
+
 	do
 	{
-		if (*dealerSum > 16) // Dealer stands
+		if (*dealerSum > 16)
 		{
+			printf("Dealer stands.\n");
 			return 1;
 		}
 
@@ -148,7 +157,9 @@ int dealerTurn(card deck[], int* dealerSum, int* newCard)
 		}
 	} while (*dealerSum <= 21);
 
-	// print "Dealer has busted"
+	printf("Dealer has whent bust, Player wins.\n");
+
+	// ***Call file I/O function here to write changes to .txt file***
 
 	return 0;
 }
@@ -157,50 +168,58 @@ void determineWinner(int playerSum, int dealerSum, int* balance, int bet)  // **
 {
 	if (playerSum == dealerSum)
 	{
-		// tie
+		printf("The round is a tie.\n");
 	}
 	else if (playerSum > dealerSum)
 	{
-		// Player wins
+		printf("Player wins.\n");
 		*balance += bet;
 
 		// ***Call file I/O function here to write changes to .txt file***
 	}
 	else
 	{
-		// Dealer Wins
+		printf("Dealer wins.\n");
 		*balance -= bet;
 
 		// ***Call file I/O function here to write changes to .txt file***
 	}
+	printf("Balance: %d\n", *balance);
 }
 
 void sum(card deck[], int* playerSum, int* dealerSum, int* newCard)
 {
 	int counter;
-	//printf("Players hand\n");
+	printf("Players hand\n");
 
 	for (counter = 0; counter < 2; counter++)
 	{
 		*playerSum += deal(deck, newCard);
 	}
-	//printf("\nSum of Player's Hand %d\n\n", *playerSum);
-	//printf("Dealers hand\n");
+	printf("\nSum of Player's Hand %d\n\n", *playerSum);
+	printf("Dealers hand\n");
 
 	for (counter = 0; counter < 2; counter++)
 	{
 		*dealerSum += deal(deck, newCard);
 	}
-	//printf("\nSum of Dealer's Hand %d\n\n", *dealerSum);
+	printf("\nSum of Dealer's Hand %d\n\n", *dealerSum);
 }
 
-int userBet(int balance, int bet)
+int userBet(int balance)
 {
+	int bet;
 	do
 	{
+		printf("Balance: %d\n", balance);
+		printf("Place your bet\n");
+		scanf_s("%d", &bet);
+
+		// ***Call check if double function here from Error Checking Module*** 
+
 		if (bet > balance || bet <= 0)
 		{
-			// Error
+			printf("Oops! Plase try again\nHint: Your bet has to be greater than zero, and not more than %d (Your balance)\n", balance);
 		}
 	} while (bet > balance || bet <= 0);
 	return bet;

@@ -16,10 +16,5 @@
 
 int main(void)
 {
-	int balance = 10;
-	card deck[numDeck];
 
-	playRound(balance, deck);
-
-	return 0;
 }

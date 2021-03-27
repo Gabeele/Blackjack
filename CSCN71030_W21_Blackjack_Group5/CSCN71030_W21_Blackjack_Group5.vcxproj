@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c" />
+    <ClCompile Include="inputValidation.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inputValidation.h" />

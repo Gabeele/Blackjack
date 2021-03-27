@@ -36,8 +36,8 @@ int read(playerlist saveList, int length) {
 		exit(1);
 	}
 	for (int i = 0; i < length; i++) { //save everything on seperate lines
-		fgets(saveList.head.player->name, MAXSIZE, fptr);  
-		fgets(saveList.head.player->balance, MAXSIZE, fptr); 
+		fgets(saveList.head.player->name, MAXSIZE, fptr);
+		fgets(saveList.head.player->balance, MAXSIZE, fptr);
 		fgets(saveList.head.player->id, MAXSIZE, fptr);
 		saveList.head.player = saveList.head.nextPlayer; //move to next player
 	}

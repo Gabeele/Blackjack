@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GUI.c" />
-    <ClCompile Include="Source.c" />
+    <ClCompile Include="TestingModule.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GUI.h" />

@@ -81,7 +81,7 @@ typedef enum
 } cardName;
 
 // Structure for a Card
-typedef struct
+typedef struct 
 {
 	cardName cardName;
 	int cardValue;

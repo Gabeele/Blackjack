@@ -1,10 +1,8 @@
-// CSCN71030-21W-Sec1-Project II: Team Based Software
-//
-// Colin Smith
-//
-// Game Mechanics Module
-//
-// Game Functions
+// CSCN71030 - Project II Group 5
+// BlackJack
+// 
+// Game Mechanics Module - Created by Colin Smith csmith6251@conestogac.on.ca
+// The purpose of this module is to provide the fundamental functions required to play a round of BlackJack
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -30,7 +28,6 @@ void shuffle(card deck[])
 	}
 }
 
-
 void setupDeck(card deck[])
 {
 	shuffle(deck);
@@ -40,7 +37,7 @@ void setupDeck(card deck[])
 
 	for (i = 0; i < numDeck; i++)
 	{
-		deck[i].cardName = i % 52;
+		deck[i].cardName = i % numDeck;
 
 		if (deck[i].cardName == AceOfClubs || deck[i].cardName == AceOfSpades || deck[i].cardName == AceOfHearts || deck[i].cardName == AceOfDiamonds)
 		{
@@ -62,9 +59,8 @@ void setupDeck(card deck[])
 	}
 }
 
-void playRound(int balance, card deck[numDeck]) // ***Add Player from player Module in delcoration***
+void playRound(int balance, card deck[numDeck]) 
 {
-	// ***Call player Module***
 	setupDeck(deck);
 	shuffle(deck);
 
@@ -80,7 +76,6 @@ void playRound(int balance, card deck[numDeck]) // ***Add Player from player Mod
 	{
 		if (dealerTurn(deck, &dealerSum, &newCard))
 		{
-
 			determineWinner(playerSum, dealerSum, &balance, bet);
 		}
 		else
@@ -93,8 +88,6 @@ void playRound(int balance, card deck[numDeck]) // ***Add Player from player Mod
 		balance -= bet;
 	}
 	printf("End of the Round\n");
-
-	// ***Potentially call GUI leaderboard (depending on implementation)
 }
 
 int deal(card deck[], int* cardName)
@@ -105,16 +98,20 @@ int deal(card deck[], int* cardName)
 	return deck[*cardName - 1].cardValue;
 }
 
-int playerTurn(card deck[], int* playerSum, int* newCard) // ***Add player from player module in decloration***
+int playerTurn(card deck[], int* playerSum, int* newCard) 
 {
-	int option;
 	do
 	{
 		printf("It is the Players Turn\n");
 		printf("Chose your move: [1] Hit or [2] Stand\n");
-		scanf_s("%d", &option);
 
-		// ***Call function to validate input here from Error Checking Module***
+		int option = getInput();
+
+		if (option == 0000)
+		{
+			printf("The game has ended.");
+			return 0;
+		}
 
 		if (option == 1)
 		{
@@ -129,8 +126,6 @@ int playerTurn(card deck[], int* playerSum, int* newCard) // ***Add player from 
 			return 1;
 		}
 	} while (*playerSum <= 21);
-
-	// ***Call file I/O function here to write changes to .txt file***
 
 	printf("\nPlayer has whent bust, Player losees.\n");
 	return 0;
@@ -159,12 +154,10 @@ int dealerTurn(card deck[], int* dealerSum, int* newCard)
 
 	printf("Dealer has whent bust, Player wins.\n");
 
-	// ***Call file I/O function here to write changes to .txt file***
-
 	return 0;
 }
 
-void determineWinner(int playerSum, int dealerSum, int* balance, int bet)  // ***Add player from player module in decloration***
+void determineWinner(int playerSum, int dealerSum, int* balance, int bet)  
 {
 	if (playerSum == dealerSum)
 	{
@@ -174,15 +167,11 @@ void determineWinner(int playerSum, int dealerSum, int* balance, int bet)  // **
 	{
 		printf("Player wins.\n");
 		*balance += bet;
-
-		// ***Call file I/O function here to write changes to .txt file***
 	}
 	else
 	{
 		printf("Dealer wins.\n");
 		*balance -= bet;
-
-		// ***Call file I/O function here to write changes to .txt file***
 	}
 	printf("Balance: %d\n", *balance);
 }
@@ -213,15 +202,22 @@ int userBet(int balance)
 	{
 		printf("Balance: %d\n", balance);
 		printf("Place your bet\n");
-		scanf_s("%d", &bet);
 
-		// ***Call check if double function here from Error Checking Module*** 
+	    bet = getInput();
 
-		if (bet > balance || bet <= 0)
+		if (bet == 0000)
+		{
+			printf("The game has ended.");
+			return 0;
+		}
+		
+		else if (bet > balance || bet <= 0)
 		{
 			printf("Oops! Plase try again\nHint: Your bet has to be greater than zero, and not more than %d (Your balance)\n", balance);
 		}
-	} while (bet > balance || bet <= 0);
+	} 
+	while (bet > balance || bet <= 0);
+
 	return bet;
 }
 

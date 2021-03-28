@@ -118,3 +118,16 @@ void addFund(pPLAYER profile, int additionalFund)
 {
 	profile->balance += additionalFund;
 }
+
+pPLAYER getPlayer(pNODE node)
+{
+	return node->player;
+}
+char* getName(pPLAYER player)
+{
+	return player->name;
+}
+int getBalane(pPLAYER player)
+{
+	return player->balance;
+}

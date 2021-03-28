@@ -32,3 +32,10 @@ void printPlayerList(pPLAYERLIST playerList);
 pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName);
 void resetBalance(pPLAYER profile);
 void addFund(pPLAYER profile, int additionalFund);
+pPLAYER getPlayer(pNODE node);
+char* getName(pPLAYER player);
+int getBalane(pPLAYER player);
+
+
+
+

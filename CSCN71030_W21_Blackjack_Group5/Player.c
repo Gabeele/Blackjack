@@ -3,6 +3,11 @@
 pPLAYERLIST initializePlayerList()
 {
 	pPLAYERLIST newPlayerList = (pPLAYERLIST)malloc(sizeof(PLAYERLIST));
+	if (!newPlayerList)
+	{
+		fprintf(stdout, "Error allocating data");
+		exit;
+	}
 	newPlayerList->head = NULL;
 	return newPlayerList;
 }

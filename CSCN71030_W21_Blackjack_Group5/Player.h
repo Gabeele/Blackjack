@@ -9,13 +9,13 @@ typedef struct player
 {
 	char name[MAXLENGTH];
 	int balance;
-}*pPLAYER;
+}PLAYER, *pPLAYER;
 
 typedef struct node
 {
 	pPLAYER player;
 	struct node* nextPlayer;
-}*pNODE;
+}*pNODE, NODE;
 
 typedef struct playerList
 {

@@ -5,7 +5,7 @@ pPLAYERLIST initializePlayerList()
 	pPLAYERLIST newPlayerList = (pPLAYERLIST)malloc(sizeof(PLAYERLIST));
 	if (!newPlayerList)
 	{
-		fprintf(stdout, "Error allocating data");
+		fprintf(stdout, "Error allocating data\n");
 		exit;
 	}
 	newPlayerList->head = NULL;
@@ -13,15 +13,25 @@ pPLAYERLIST initializePlayerList()
 }
 pPLAYER createPlayer(char* name)
 {
-	pPLAYER newPlayer = NULL;
-	strcpy_s(newPlayer->name, strlen(name), name);
+	pPLAYER newPlayer = (pPLAYER)malloc(sizeof(PLAYER));
+	if (!newPlayer)
+	{
+		fprintf(stdout, "Error allocating data\n");
+		exit;
+	}
+	memcpy(newPlayer->name, name, MAXLENGTH);
 	newPlayer->balance = DEFAULT_BALANCE;
 
 	return newPlayer;
 }
 void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer)
-{
-	pNODE newNode = NULL;
+{//add the new player to the front of the list and then sort the whole list
+	pNODE newNode = (pNODE)malloc(sizeof(NODE));
+	if (!newNode)
+	{
+		fprintf(stdout, "Error allocating data\n");
+		exit;
+	}
 	newNode->player = newPlayer;
 	newNode->nextPlayer = playerList->head;
 	playerList->head = newNode;
@@ -88,19 +98,26 @@ pNODE sortPlayerList(pPLAYERLIST playerList)
 	largestNode->nextPlayer = sortPlayerList(playerList);
 	return largestNode;	//the first node of the sorted list 
 }
-void printPlayerList(pPLAYERLIST playerList)
+void printPlayerList(pNODE head)
 {
-	if (playerList->head == NULL)
+	if (head == NULL)
 		return;
 
-	int i = 1;
-	pNODE currentNode = playerList->head;
-	while (playerList->head == NULL)
+	/*int i = 1;
+	pNODE currentNode = (pNODE)malloc(sizeof(NODE));
+	if (!currentNode)
 	{
-		printf("%d)\t %s\n", i, currentNode->player->name);
-		i++;
-		currentNode = currentNode->nextPlayer;
+		fprintf(stdout, "Error allocating data\n");
+		exit;
 	}
+	currentNode= playerList->head;
+	while (playerList->head != NULL)
+	{*/
+		printf("%s\n", head->player->name);
+		printPlayerList(head->nextPlayer);
+		//i++;
+		//currentNode = currentNode->nextPlayer;
+	//}
 }
 pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 {

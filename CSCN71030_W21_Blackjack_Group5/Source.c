@@ -21,7 +21,7 @@ int main() {
 	insertNewPlayer(playerList, player2);
 	pPLAYER player3 = createPlayer("Collin");
 	insertNewPlayer(playerList, player3);
-	printPlayerList(playerList);
+	printPlayerList(playerList->head);
 	printf("\n");
 
 	printf("add fund + reset balance\n");
@@ -47,7 +47,7 @@ int main() {
 	printPlayerList(initializePlayerList);
 	printf("head: %s\n", playerList->head->player->name);
 	printf("\n");
-
+	
 
 
 	return 0;

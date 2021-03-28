@@ -105,7 +105,7 @@ int playerTurn(card deck[], int* playerSum, int* newCard)
 		printf("It is the Players Turn\n");
 		printf("Chose your move: [1] Hit or [2] Stand\n");
 
-		int option = getInput();
+		int option = getInput();//*
 
 		if (option == 0000)
 		{
@@ -129,7 +129,7 @@ int playerTurn(card deck[], int* playerSum, int* newCard)
 		}
 		//else
 		//{
-			//errorchecking();
+			//errorchecking module
 		//}
 
 	} 
@@ -212,7 +212,7 @@ int userBet(int balance)
 		printf("Balance: %d\n", balance);
 		printf("Place your bet\n");
 
-	    bet = getInput();
+	    bet = getInput();//*
 
 		if (bet == 0000)
 		{

@@ -232,177 +232,177 @@ int userBet(int balance)
 
 void displayDeck(card cardName)
 {
-	char suit[4][8] = { "Hearts", "Clubs", "Spades", "Diamonds"};
+	char suit[5][8] = { "Hearts", "Clubs", "Spades", "Diamonds", '\0'};
 
 	switch (cardName.cardName)
 	{
 	case TwoOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case TwoOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case TwoOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 	case TwoOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 
 	case ThreeOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case ThreeOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case ThreeOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 	case ThreeOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 
 	case FourOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case FourOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case FourOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 	case FourOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 
 	case FiveOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case FiveOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case FiveOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 	case FiveOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 
 	case SixOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case SixOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case SixOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 	case SixOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 
 	case SevenOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case SevenOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case SevenOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 	case SevenOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 
 	case EightOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case EightOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case EightOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 	case EightOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 
 	case NineOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case NineOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case NineOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 	case NineOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 
 	case TenOfHearts:
-		printf("%d of %s\n", cardName.cardValue, suit[0]);
+		printf("%d of %s\n", cardName.cardValue, &suit[0]);
 		break;
 	case TenOfDiamonds:
-		printf("%d of %s\n", cardName.cardValue, suit[3]);
+		printf("%d of %s\n", cardName.cardValue, &suit[3]);
 		break;
 	case TenOfSpades:
-		printf("%d of %s\n", cardName.cardValue, suit[2]);
+		printf("%d of %s\n", cardName.cardValue, &suit[2]);
 		break;
 	case TenOfClubs:
-		printf("%d of %s\n", cardName.cardValue, suit[1]);
+		printf("%d of %s\n", cardName.cardValue, &suit[1]);
 		break;
 
 	case KingOfHearts:
-		printf("King of %s\n", suit[0]);
+		printf("King of %s\n", &suit[0]);
 		break;
 	case KingOfDiamonds:
-		printf("King of %s\n", suit[3]);
+		printf("King of %s\n", &suit[3]);
 		break;
 	case KingOfClubs:
-		printf("King of %s\n", suit[1]);
+		printf("King of %s\n", &suit[1]);
 		break;
 	case KingOfSpades:
-		printf("King of %s\n", suit[2]);
+		printf("King of %s\n", &suit[2]);
 		break;
 
 	case QueenOfHearts:
-		printf("Queen of %s\n", suit[0]);
+		printf("Queen of %s\n", &suit[0]);
 		break;
 	case QueenOfDiamonds:
-		printf("Queen of %s\n", suit[3]);
+		printf("Queen of %s\n", &suit[3]);
 		break;
 	case QueenOfClubs:
-		printf("Queen of %s\n", suit[1]);
+		printf("Queen of %s\n", &suit[1]);
 		break;
 	case QueenOfSpades:
-		printf("Queen of %s\n", suit[2]);
+		printf("Queen of %s\n", &suit[2]);
 		break;
 
 	case JackOfHearts:
-		printf("Jack of %s\n", suit[0]);
+		printf("Jack of %s\n", &suit[0]);
 		break;
 	case JackOfDiamonds:
-		printf("Jack of %s\n", suit[3]);
+		printf("Jack of %s\n", &suit[3]);
 		break;
 	case JackOfClubs:
-		printf("Jack of %s\n", suit[1]);
+		printf("Jack of %s\n", &suit[1]);
 		break;
 	case JackOfSpades:
-		printf("Jack of %s\n", suit[2]);
+		printf("Jack of %s\n", &suit[2]);
 		break;
 
 	case AceOfHearts:
-		printf("Ace of %s\n", suit[0]);
+		printf("Ace of %s\n", &suit[0]);
 		break;
 	case AceOfDiamonds:
-		printf("Ace of %s\n", suit[3]);
+		printf("Ace of %s\n", &suit[3]);
 		break;
 	case AceOfClubs:
-		printf("Ace of %s\n", suit[1]);
+		printf("Ace of %s\n", &suit[1]);
 		break;
 	case AceOfSpades:
-		printf("Ace of %s\n", suit[2]);
+		printf("Ace of %s\n", &suit[2]);
 		break;
 	}
 }

@@ -22,8 +22,6 @@ int save(playerlist saveList, int length) { //Save Function
 		fputc('\n', fptr);
 		fprintf(fptr, "%d", saveList.head.player->balance);
 		fputc('\n', fptr);
-		fprintf(fptr, "%d", saveList.head.player->id);
-		fputc('\n', fptr);
 		saveList.head.player = saveList.head.nextPlayer; //move to next player
 	}
 	fclose(fptr); //close files
@@ -42,8 +40,7 @@ int read(playerlist saveList) {
 		fgets(saveList.head.player->name, MAXSIZE, fptr);
 		fgets(temp, MAXSIZE, fptr);
 		saveList.head.player->balance = atoi(temp);
-		fgets(temp, MAXSIZE, fptr);
-		saveList.head.player->id = atoi(temp);
+		//allocate memory using a function in player
 		saveList.head.player = saveList.head.nextPlayer; //move to next player
 	}
 	fclose(fptr); //close file

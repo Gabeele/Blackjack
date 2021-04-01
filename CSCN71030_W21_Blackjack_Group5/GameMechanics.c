@@ -131,7 +131,6 @@ int playerTurn(card deck[], int* playerSum, int* newCard)
 		//{
 			//errorchecking module
 		//}
-
 	} 
 	while (*playerSum <= 21);
 

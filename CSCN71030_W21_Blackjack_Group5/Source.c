@@ -29,24 +29,26 @@ int main() {
 	addFund(player3, 4);
 	addFund(player2, 86);
 	resetBalance(player3);
-	printPlayerList(playerList);
+	sortPlayerList(playerList->head);
+	printPlayerList(playerList->head);
 	printf("\n");
 
 	printf("alter name\n");
 	alterName(player2, "Josh");
-	printPlayerList(playerList);
+	printPlayerList(playerList->head);
 	printf("\n");
 
 	printf("seach for player node through the name\n");
-	pPLAYER player4 = playerSelectByString(playerList, "Rachel");
-	printf("%s - %d\n", player4->name, player4->balance);
+	pPLAYER player4 = (pPLAYER)malloc(sizeof(PLAYER));
+	player4=playerSelectByString(playerList, "Rachel");
+	//printf("%s - %d\n", player4->name, player4->balance);
 	printf("\n");
 
-	printf("delete\n");
+	/*printf("delete\n");
 	deleteProfile(playerList, player1);
-	printPlayerList(initializePlayerList);
-	printf("head: %s\n", playerList->head->player->name);
-	printf("\n");
+	printPlayerList(playerList->head);
+	printf	("head: %s\n", playerList->head->player->name);
+	printf("\n");*/
 	
 
 

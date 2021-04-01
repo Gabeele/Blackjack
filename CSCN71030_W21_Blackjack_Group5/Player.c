@@ -35,89 +35,69 @@ void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer)
 	newNode->player = newPlayer;
 	newNode->nextPlayer = playerList->head;
 	playerList->head = newNode;
-	sortPlayerList(playerList);
+	sortPlayerList(playerList->head);
 }
-void deleteProfile(pPLAYERLIST playerList, pPLAYER profile)
+/*void deleteProfile(pPLAYERLIST playerList, pPLAYER profile)
 {
 	if (playerList->head == NULL)
 		return;
 
-	pNODE prev = playerList->head;
-	pNODE currentPlayer = playerList->head;
-	while (strcmp(currentPlayer->player->name, profile->name)!=0)
+	pNODE currentNode = (pNODE)malloc(sizeof(NODE));
+	pNODE temp = (pNODE)malloc(sizeof(NODE));
+	currentNode = playerList->head;
+
+	while (strcmp(currentNode->player->name, profile->name)!=0)
 	{
-		prev = currentPlayer;
-		currentPlayer = currentPlayer->nextPlayer;
-		if (currentPlayer == NULL)
+		currentNode = currentNode->nextPlayer;
+		//currentPlayer = currentPlayer->nextPlayer;
+		if (currentNode == NULL)
 			return;
 	}
 	//when the wanted deleted profile is found, do this:
-	prev->nextPlayer = currentPlayer->nextPlayer;  //skip the current node
-	currentPlayer = NULL;						   //point the current node to null then free it
-	free(currentPlayer);
-}
+
+	temp = currentNode->nextPlayer;  //skip the current node
+	currentNode = temp->nextPlayer;
+
+	free(temp);
+}*/
 void alterName(pPLAYER profile, char* newName)
 {
-	strcpy_s(profile->name, strlen(newName), newName);
+	memcpy(profile->name, newName, strlen(newName));
 }
-pNODE sortPlayerList(pPLAYERLIST playerList)
+void sortPlayerList(pNODE head)
 {
-	if (playerList->head == NULL || playerList->head->nextPlayer == NULL)	//1-node playerList
-		return NULL;
-
-	//find the node that has the largest value
-	pNODE currentNode = playerList->head;
-	pNODE largestNode = playerList->head;
-	pNODE prevofCurrentNode = playerList->head;
-	pNODE prevOfLargestNode = playerList->head;
-	pNODE headNode = playerList->head;
-
-	while (currentNode != NULL)
+	int swapped, i;
+	pNODE node;
+	pNODE temp = (pNODE)malloc(sizeof(NODE));
+	pNODE nextNode = (pNODE)malloc(sizeof(NODE));
+	do
 	{
-		if (currentNode->player->balance > largestNode->player->balance)
+		swapped = 0;
+		node = head;
+
+		while (node->nextPlayer != NULL)
 		{
-			prevOfLargestNode = prevofCurrentNode;
-			largestNode = currentNode;
+			nextNode = node->nextPlayer;
+			if (node->player->balance < nextNode->player->balance)
+			{	//swapping
+				 
+				temp = node->player;
+				node->player = nextNode->player;
+				nextNode->player = temp;
+				swapped = 1;
+			}
+			node = node->nextPlayer;
 		}
-		prevofCurrentNode = currentNode;
-		currentNode = currentNode->nextPlayer;
-	} //largest node is found
+	}while (swapped);
 
-	//switch the first node with the largest node
-	pNODE tmp;
-	if (largestNode != playerList->head)
-	{
-		tmp = headNode->nextPlayer;
-		prevOfLargestNode->nextPlayer = headNode;
-		headNode->nextPlayer = largestNode->nextPlayer;
-		largestNode->nextPlayer = tmp;
-	}//now the largest node is the first node of the list
-
-	//do the same thing for the rest of the list by calling the function again with the sub list
-	playerList->head = largestNode->nextPlayer;
-	largestNode->nextPlayer = sortPlayerList(playerList);
-	return largestNode;	//the first node of the sorted list 
 }
 void printPlayerList(pNODE head)
 {
 	if (head == NULL)
 		return;
 
-	/*int i = 1;
-	pNODE currentNode = (pNODE)malloc(sizeof(NODE));
-	if (!currentNode)
-	{
-		fprintf(stdout, "Error allocating data\n");
-		exit;
-	}
-	currentNode= playerList->head;
-	while (playerList->head != NULL)
-	{*/
-		printf("%s\n", head->player->name);
-		printPlayerList(head->nextPlayer);
-		//i++;
-		//currentNode = currentNode->nextPlayer;
-	//}
+	printf("Player: %s, Balance: %d\n", head->player->name, head->player->balance);
+	printPlayerList(head->nextPlayer);
 }
 pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 {

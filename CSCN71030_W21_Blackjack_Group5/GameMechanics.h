@@ -1,10 +1,13 @@
-// CSCN71030-21W-Sec1-Project II: Team Based Software
-//
-// Colin Smith
-//
-// Game Mechanics Module
-//
+// CSCN71030 - Project II Group 5
+// BlackJack
+// 
+// Game Mechanics Module - Created by Colin Smith csmith6251@conestogac.on.ca
+// The purpose of this module is to provide the fundamental functions required to play a round of BlackJack
+
+// ******************
 // Game Declorations
+// ******************
+
 #pragma once
 
 //Definitions

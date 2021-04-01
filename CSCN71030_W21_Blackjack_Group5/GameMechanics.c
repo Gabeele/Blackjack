@@ -4,6 +4,10 @@
 // Game Mechanics Module - Created by Colin Smith csmith6251@conestogac.on.ca
 // The purpose of this module is to provide the fundamental functions required to play a round of BlackJack
 
+// ***************
+// Game Functions
+// ***************
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

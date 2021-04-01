@@ -111,6 +111,8 @@ pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 			return currentPlayer->player;
 		else
 			currentPlayer = currentPlayer->nextPlayer;
+		//if (currentPlayer == NULL)
+			//return NULL;
 	} while (currentPlayer != NULL);
 	printf("There is no matching player\n");
 	return NULL;

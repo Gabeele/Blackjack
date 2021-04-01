@@ -40,8 +40,8 @@ int main() {
 
 	printf("seach for player node through the name\n");
 	pPLAYER player4 = (pPLAYER)malloc(sizeof(PLAYER));
-	player4=playerSelectByString(playerList, "Rachel");
-	//printf("%s - %d\n", player4->name, player4->balance);
+	player4=playerSelectByString(playerList, "Rachel L");
+	printf("%s - %d\n", player4->name, player4->balance);
 	printf("\n");
 
 	/*printf("delete\n");

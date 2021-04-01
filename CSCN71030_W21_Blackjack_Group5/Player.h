@@ -9,7 +9,7 @@ typedef struct player {
 
 }PLAYER, * pPLAYER;
 
-typedef struct playerNode {
+typedef struct NODE {
 	pPLAYER player;
 	pNODE nextPlayer;
 }NODE, *pNODE;

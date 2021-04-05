@@ -37,11 +37,11 @@ int read(playerlist saveList) {
 		return 1;
 	}
 	while (!feof(fptr)) {
-		fgets(saveList.head.player->name, MAXSIZE, fptr);
 		fgets(temp, MAXSIZE, fptr);
-		saveList.head.player->balance = atoi(temp);
-		//allocate memory using a function in player
-		saveList.head.player = saveList.head.nextPlayer; //move to next player
+		pPLAYER newPlayer = createPlayer(temp);
+		fgets(temp, MAXSIZE, fptr);
+		newPlayer->balance = atoi(temp);
+		insertNewPlayer(saveList, newPlayer);
 	}
 	fclose(fptr); //close file
 	return 0;

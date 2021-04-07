@@ -20,7 +20,7 @@ int save(playerlist saveList, int length) { //Save Function
 	for (int i = 0; i < length; i++) { //save all info on different lines
 		fprintf(fptr, "%s", saveList.head.player->name);
 		fputc('\n', fptr);
-		fprintf(fptr, "%d", saveList.head.player->balance);
+		fprintf(fptr, "%d", ~(saveList.head.player->balance));
 		fputc('\n', fptr);
 		saveList.head.player = saveList.head.nextPlayer; //move to next player
 	}
@@ -41,6 +41,7 @@ int read(playerlist saveList) {
 		pPLAYER newPlayer = createPlayer(temp);
 		fgets(temp, MAXSIZE, fptr);
 		newPlayer->balance = atoi(temp);
+		newPlayer->balance = ~(newPlayer->balance);
 		insertNewPlayer(saveList, newPlayer);
 	}
 	fclose(fptr); //close file

@@ -4,7 +4,7 @@
 
 #include "Player.h"
 
-int main() {
+int PlayerTesting() {
 
 	pPLAYERLIST playerList;
 	playerList = initializePlayerList();

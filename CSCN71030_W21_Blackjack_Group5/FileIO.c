@@ -1,14 +1,15 @@
 //CSCN71030 - Project II 
 //
 //Group 5
+#define MAXSIZE 20
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include "FileIO.h"
 #include "Player.h"
-#define MAXSIZE 20
-#define _CRT_SECURE_NO_WARNINGS
+
 
 int save(pPLAYERLIST saveList, int length) { //Save Function
 	FILE* fptr;

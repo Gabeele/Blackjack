@@ -29,6 +29,9 @@
     <ClCompile Include="Player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="test.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Saved.txt">

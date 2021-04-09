@@ -18,7 +18,7 @@
     <ClCompile Include="GameMechanics.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="testingMain.c">
+    <ClCompile Include="sampleMain.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

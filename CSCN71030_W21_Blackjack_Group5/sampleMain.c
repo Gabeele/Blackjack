@@ -13,6 +13,7 @@
 #include <string.h>
 #include "GameMechanics.h"
 
+/*
 int main(void)
 {
 	int balance = 200000; // Simulates player balance
@@ -23,7 +24,9 @@ int main(void)
 
 	return 0;
 }
+*/
 
+/*
 int getInput()  // Simulates getInput() function from GUI
 {
 	int option;
@@ -31,3 +34,4 @@ int getInput()  // Simulates getInput() function from GUI
 
 	return option;
 }
+*/

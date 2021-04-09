@@ -140,7 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="GameMechanics.c" />
-    <ClCompile Include="testingMain.c" />
+    <ClCompile Include="sampleMain.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameMechanics.h" />

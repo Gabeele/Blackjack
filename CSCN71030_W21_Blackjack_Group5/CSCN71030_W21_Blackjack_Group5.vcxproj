@@ -139,13 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FileIO.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Saved.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="FileIO.h" />
+
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

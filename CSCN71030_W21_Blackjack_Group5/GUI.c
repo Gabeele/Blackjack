@@ -303,7 +303,7 @@ int getInput() {	//Interfaces with the user to get input and checks conditions.
 	do {
 
 		printf("\nEnter Option: ");
-		scanf_s("%d",&userInput, MAX_INPUT);
+		scanf_s("%s",&userInput, MAX_INPUT);
 
 		if (checkInt(userInput) == 0) {// 0  is good, 1 is bad, abort is 2
 

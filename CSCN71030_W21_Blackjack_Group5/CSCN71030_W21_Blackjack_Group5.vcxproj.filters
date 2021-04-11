@@ -15,24 +15,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileIO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="FileIO.c">
+    <ClCompile Include="Source.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Player.c">
+    <ClCompile Include="FileIO.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="inputValidation.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -46,10 +41,11 @@
     <ClInclude Include="inputValidation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Saved.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    <ClInclude Include="FileIO.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

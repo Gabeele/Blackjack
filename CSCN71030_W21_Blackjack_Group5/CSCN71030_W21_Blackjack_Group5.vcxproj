@@ -141,7 +141,6 @@
   <ItemGroup>
     <ClCompile Include="FileIO.c" />
     <ClCompile Include="Player.c" />
-    <ClCompile Include="test.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileIO.h" />

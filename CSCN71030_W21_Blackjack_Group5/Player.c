@@ -33,6 +33,7 @@ void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer)
 		exit;
 	}
 	newNode->player = newPlayer;
+	//if (playerList->head != NULL)
 	newNode->nextPlayer = playerList->head;
 	playerList->head = newNode;
 	sortPlayerList(playerList->head);

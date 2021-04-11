@@ -22,7 +22,6 @@ int main(int argc, char** argv) {
 
 	}
 
-	//Comment
 
 	return 0;
 }

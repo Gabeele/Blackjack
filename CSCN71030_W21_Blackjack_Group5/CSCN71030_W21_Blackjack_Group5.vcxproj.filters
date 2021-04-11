@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c">
+    <ClCompile Include="inputValidation.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GUI.c">
@@ -27,6 +27,11 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TestingModule.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="inputValidation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

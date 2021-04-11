@@ -139,7 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GUI.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>

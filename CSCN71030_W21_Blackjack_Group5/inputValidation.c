@@ -17,15 +17,13 @@ int checkInt(char input[]) { //check int from string
 		}
 	}
 	if (check == length) { //return 0 of it is a valid integer 
+		if (checkAbort(input) == 1) { //return 1 if invalid integer
+			return 2;
+		}
 		return 0;
 	}
 	else {
-		if (checkAbort(input) == 0) { //return 1 if invalid integer
-			return 1;
-		}
-		else {
-			return 2; //return 2 if abort value
-		}
+		return 1;
 	}
 }
 

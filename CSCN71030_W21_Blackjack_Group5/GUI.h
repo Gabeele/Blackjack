@@ -1,10 +1,13 @@
 #pragma once
 
-#include "TestingModule.h"	//Testing only
+#include "TestingModule.h"
+#include "inputValidation.h" 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
+
 
 #define MAX_NAME_LENGTH 100
 #define  LEADERBOARD_COUNT 10

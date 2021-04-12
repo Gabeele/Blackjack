@@ -15,40 +15,8 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.c">
+    <ClCompile Include="GameMechanics.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileIO.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GUI.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="inputValidation.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GUI.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TestingModule.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="inputValidation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FileIO.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Saved.txt" />
   </ItemGroup>
 </Project>

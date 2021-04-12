@@ -139,10 +139,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FileIO.c" />
-    <ClCompile Include="GUI.c" />
-    <ClCompile Include="inputValidation.c" />
-    <ClCompile Include="Player.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>

@@ -192,7 +192,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		return;
 	}
 
-	pPLAYER player = createPlayer(playerList, *name);	//TODO: Change parameters
+	pPLAYER player = createPlayer(&name);	//TODO: Change parameters
 	insertNewPlayer(playerList, player);
 
 	printf("Enter Player Name: ");

@@ -24,7 +24,7 @@ typedef struct playerList
 }PLAYERLIST, * pPLAYERLIST;
 
 pPLAYERLIST initializePlayerList();
-pPLAYER createPlayer(char* name);
+pPLAYER createPlayer(char *name);
 void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer);
 //void deleteProfile(pPLAYERLIST playerList, pPLAYER profile);
 void alterName(pPLAYER profile, char* newName);

@@ -126,7 +126,10 @@ pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 	currentPlayer = playerList->head;
 	do
 	{
-		
+		if (inputName == NULL) {
+			return NULL;
+		}
+
 		for(int i = 0; i < strlen(inputName); i++) {
 
 			if (inputName[i] != currentPlayer->player->name[i]) {

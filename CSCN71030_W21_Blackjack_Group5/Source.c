@@ -17,13 +17,11 @@ int main(int argc, char* argv[]) {
 
 	pPLAYER player = PlayerSelectMenu(argv[1], playerList);	//Selects the player from the list either through the menu or through the command line argument
 
-	while (1) {
 
 		mainMenu(playerList, player);	//get out 
 
-	}
 
-	save(playerList, getListLength(playerList));
+	//save(playerList, getListLength(playerList)); git issue #33
 
 	return 0;
 }

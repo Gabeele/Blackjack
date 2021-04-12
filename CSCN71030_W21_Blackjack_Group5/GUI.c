@@ -25,6 +25,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 		return getPlayer(playerList->head);	//Selects the newly inserted player
 	}
 	else {	//If there is any command line arguments
+		
 		pPLAYER playerSelected = playerSelectByString(playerList, cmdLnPlayer);
 
 		if (playerSelected == NULL) {	//Check if there is a player by that name
@@ -138,7 +139,7 @@ void profileOptions(pPLAYERLIST playerList, pPLAYER player) {	//Displays the lis
 			printf("\n\nChange name to: ");
 			scanf_s("%s", name, MAX_NAME_LENGTH);
 
-			alterName(player, *name);
+			alterName(player, &name);
 			break;
 		case 2:
 			printPlayer(player);

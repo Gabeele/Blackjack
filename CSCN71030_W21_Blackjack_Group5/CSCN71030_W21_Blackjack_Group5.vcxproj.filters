@@ -49,8 +49,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Saved.txt">
-      <Filter>Source Files</Filter>
-    </Text>
+    <Text Include="Saved.txt" />
   </ItemGroup>
 </Project>

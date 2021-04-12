@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
 		mainMenu(playerList, player);	//get out 
 
 
-	//save(playerList, getListLength(playerList)); git issue #33
+	save(playerList, getListLength(playerList)); //git issue 33
 
 	return 0;
 }

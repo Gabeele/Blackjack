@@ -31,11 +31,12 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 		if (playerSelected == NULL) {	//Check if there is a player by that name
 			
 			printPlayerList(playerList);
-	
+			printf("0) Create New Player\n\n");
+
 			do {	
 
-				printf("0) Create New Player\n");
-				printf("Select a Player Number");
+				
+				printf("\nSelect a Player Number");
 				
 				playerIndex = getInput();
 
@@ -43,7 +44,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 					inputCreatePlayer(playerList);
 				}
 
-			} while (playerIndex >= getListLength(playerList) || playerIndex < 0);
+			} while (playerIndex > getListLength(playerList) || playerIndex < 0);
 		 }
 		
 		else {
@@ -216,12 +217,14 @@ void displayLeaderboard(pPLAYERLIST playerList) {
 
 	while (node != NULL) {
 
-		printf("%d) %s - $%d\n", counter, getName(node->player), getBalane(node->player));
+		printf("%d) %s\tBalance - $%d\n", counter, getName(node->player), getBalane(node->player));
 
 		node = node->nextPlayer;
 
 		counter++;
 	}
+
+	printf("--------------------------------\n");
 	
 }
 

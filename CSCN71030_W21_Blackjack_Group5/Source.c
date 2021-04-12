@@ -9,13 +9,13 @@
 #include "fileIO.h"
 #include "GUI.h"
 
-int main(int argc, char** argv) {
+int main(int argc, char* argv[]) {
 
 	pPLAYERLIST playerList = initializePlayerList();	//Creates, inisitalizes, and reads from the file and returns a playerList
 
 	read(playerList);
 
-	pPLAYER player = PlayerSelectMenu(*argv, playerList);	//Selects the player from the list either through the menu or through the command line argument
+	pPLAYER player = PlayerSelectMenu(argv[1], playerList);	//Selects the player from the list either through the menu or through the command line argument
 
 	while (1) {
 

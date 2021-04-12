@@ -116,13 +116,26 @@ void printPlayerListpMod(pNODE head)
 }
 pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 {
+	int checkNameFlag = 0;
+
+	//inputName[strlen(inputName)] = '\n';
+
 	if (playerList->head == NULL)
 		return NULL;
 	pNODE currentPlayer = (pNODE)malloc(sizeof(NODE));
 	currentPlayer = playerList->head;
 	do
 	{
-		if (strcmp(currentPlayer->player->name, inputName) == 0)
+		
+		for(int i = 0; i < strlen(inputName); i++) {
+
+			if (inputName[i] != currentPlayer->player->name[i]) {
+				checkNameFlag = 1;
+			}
+
+		}
+
+		if (checkNameFlag == 0)
 			return currentPlayer->player;
 		else
 			currentPlayer = currentPlayer->nextPlayer;

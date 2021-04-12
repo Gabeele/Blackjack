@@ -34,17 +34,18 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	
 			do {	
 
+				printf("0) Create New Player\n");
 				printf("Select a Player Number");
 				
 				playerIndex = getInput();
 
-				if (playerIndex == NULL) {
-					return;
+				if (playerIndex == NULL) {	//If the user selected 0 prompt the user to input a new player
+					inputCreatePlayer(playerList);
 				}
-
 
 			} while (playerIndex >= getListLength(playerList) || playerIndex < 0);
 		 }
+		
 		else {
 			return (playerSelected);
 		}

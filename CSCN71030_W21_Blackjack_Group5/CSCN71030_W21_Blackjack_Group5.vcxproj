@@ -139,14 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileIO.c" />
+    <ClCompile Include="GameMechanics.c" />
+    <ClCompile Include="GUI.c" />
+    <ClCompile Include="inputValidation.c" />
+    <ClCompile Include="Player.c" />
     <ClCompile Include="Source.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileIO.h" />
+    <ClInclude Include="GameMechanics.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="inputValidation.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="TestingModule.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Saved.txt" />

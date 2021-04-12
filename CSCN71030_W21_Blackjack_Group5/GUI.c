@@ -104,7 +104,8 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {	//Displays the main menu
 			break;
 		case 4:
 			system("cls");
-			//playRound(player);
+			card deck[numDeck];
+			playRound(player, deck);
 
 			break;
 		case 5:

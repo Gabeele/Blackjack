@@ -10,6 +10,8 @@
 
 #pragma once
 
+#include "player.h"
+
 //Definitions
 #define numDeck 52
 
@@ -84,7 +86,7 @@ typedef enum
 } cardName;
 
 // Structure for a Card
-typedef struct 
+typedef struct CARD
 {
 	cardName cardName;
 	int cardValue;
@@ -94,7 +96,7 @@ typedef struct
 // Function Declorations
 void shuffle(card deck[]);
 void setupDeck(card deck[]);
-void playRound(int balance, card deck[numDeck]); 
+void playRound(pPLAYER player, card deck[numDeck]); 
 int deal(card deck[], int* cardName);
 int playerTurn(card deck[], int* playerSum, int* newCard); 
 int dealerTurn(card deck[], int* dealerSum, int* newCard);

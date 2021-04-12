@@ -3,6 +3,7 @@
 
 #include "inputValidation.h" 
 #include "Player.h"
+#include "GameMechanics.h"
 
 #include <stdio.h>
 #include <stdlib.h>

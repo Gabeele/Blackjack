@@ -63,7 +63,7 @@ void setupDeck(card deck[])
 	}
 }
 
-void playRound(int balance, card deck[numDeck]) 
+void playRound(pPLAYER player, card deck[numDeck]) 
 {
 	setupDeck(deck);
 	shuffle(deck);
@@ -73,23 +73,23 @@ void playRound(int balance, card deck[numDeck])
 	int bet = 0;
 	int newCard = 0;
 
-	bet = userBet(balance);
+	bet = userBet(getBalane(player));
 	sum(deck, &playerSum, &dealerSum, &newCard);
 
 	if (playerTurn(deck, &playerSum, &newCard))
 	{
 		if (dealerTurn(deck, &dealerSum, &newCard))
 		{
-			determineWinner(playerSum, dealerSum, &balance, bet);
+			determineWinner(playerSum, dealerSum, getBalane(player), bet);
 		}
 		else
 		{
-			balance += bet;
+			player->balance += bet;
 		}
 	}
 	else
 	{
-		balance -= bet;
+		player->balance -= bet;
 	}
 	printf("End of the Round\n");
 }

@@ -124,6 +124,7 @@ void profileOptions(pPLAYERLIST playerList, pPLAYER player) {	//Displays the lis
 		printf("Player Options Menu\n");
 		printf("\t1) Change name\n");
 		printf("\t2) View Stats\n");
+		printf("\t3) Reset Balance\n");
 		printf("\t0) Exit\n\n");
 
 		menuInput = getInput();
@@ -143,6 +144,9 @@ void profileOptions(pPLAYERLIST playerList, pPLAYER player) {	//Displays the lis
 			break;
 		case 2:
 			printPlayer(player);
+			break;
+		case 3:
+			refillBalancePrompt(player);
 			break;
 		case 0:
 			return;
@@ -263,7 +267,7 @@ int refillBalancePrompt(pPLAYER player) {	//Has the user refill their balances
 
 	int menuOption = 0;
 
-	printf("Balance Notice\nBalance is 0, would you like to reset it to the default?\n");
+	printf("Balance Notice\nBalance is %d, would you like to reset it to the default?\n", getBalane(player));
 	printf("1) Yes\n");
 	printf("2) No\n");
 

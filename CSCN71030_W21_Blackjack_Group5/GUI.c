@@ -42,7 +42,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 				}
 
 
-			} while (playerIndex >= playerListLength(playerList) || playerIndex < 0);
+			} while (playerIndex >= getListLength(playerList) || playerIndex < 0);
 		 }
 		else {
 			return (playerSelected);
@@ -60,7 +60,7 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {	//Displays the main menu
 		int menuInput;
 	
 		printf("Welcome, %s\n", getName(player) );
-		printf("Current Balance: %d\n", getbalance(player));
+		printf("Current Balance: %d\n", getBalane(player));
 		printf("\t1) Learn to Play\n");
 		printf("\t2) Menu and Operation Instructions\n");
 		printf("\t3) Profile Options\n");
@@ -101,7 +101,7 @@ void mainMenu(pPLAYERLIST playerList, pPLAYER player) {	//Displays the main menu
 			break;
 		case 4:
 			system("cls");
-			playRound(player);
+			//playRound(player);
 
 			break;
 		case 5:
@@ -123,7 +123,6 @@ void profileOptions(pPLAYERLIST playerList, pPLAYER player) {	//Displays the lis
 		printf("Player Options Menu\n");
 		printf("\t1) Change name\n");
 		printf("\t2) View Stats\n");
-		printf("\t3) Delete Account\n");
 		printf("\t0) Exit\n\n");
 
 		menuInput = getInput();
@@ -139,18 +138,11 @@ void profileOptions(pPLAYERLIST playerList, pPLAYER player) {	//Displays the lis
 			printf("\n\nChange name to: ");
 			scanf_s("%s", name, MAX_NAME_LENGTH);
 
-			changePlayerName(player, name);
+			alterName(player, *name);
 			break;
 		case 2:
 			printPlayer(player);
 			break;
-		case 3:
-			printf("\nDeleting account is ireversible, and will exit the program.");
-
-			deleteProfile(playerList, player);
-			
-			return;
-
 		case 0:
 			return;
 			break;
@@ -200,14 +192,15 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		return;
 	}
 
-	addPlayer(playerList, name);	//TODO: Change parameters
+	pPLAYER player = createPlayer(playerList, *name);	//TODO: Change parameters
+	insertNewPlayer(playerList, player);
 
 	printf("Enter Player Name: ");
 }
 
 void displayLeaderboard(pPLAYERLIST playerList) {	
 
-	sortList(playerList);
+	sortPlayerList(playerList->head);
 
 	printf("Leaderboard\n\n");
 	
@@ -217,7 +210,7 @@ void displayLeaderboard(pPLAYERLIST playerList) {
 
 	while (node != NULL) {
 
-		printf("%d) %s - $%d\n", counter, getName(node->player), getBalance(node->player));
+		printf("%d) %s - $%d\n", counter, getName(node->player), getBalane(node->player));
 
 		node = node->nextPlayer;
 

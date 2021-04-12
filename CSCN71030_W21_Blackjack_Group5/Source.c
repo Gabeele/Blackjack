@@ -15,15 +15,15 @@ int main(int argc, char** argv) {
 
 	read(playerList);
 
-	pPLAYER player = selectPlayerMenu(argv, playerList);	//Selects the player from the list either through the menu or through the command line argument
+	pPLAYER player = PlayerSelectMenu(*argv, playerList);	//Selects the player from the list either through the menu or through the command line argument
 
 	while (1) {
 
-		mainMenu(playerList, player);
+		mainMenu(playerList, player);	//get out 
 
 	}
 
-
+	save(playerList, getListLength(playerList));
 
 	return 0;
 }

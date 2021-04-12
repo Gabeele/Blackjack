@@ -26,17 +26,18 @@ typedef struct playerList
 pPLAYERLIST initializePlayerList();
 pPLAYER createPlayer(char* name);
 void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer);
-void deleteProfile(pPLAYERLIST playerList, pPLAYER profile);
+//void deleteProfile(pPLAYERLIST playerList, pPLAYER profile);
 void alterName(pPLAYER profile, char* newName);
 void sortPlayerList(pNODE head);
-void printPlayerList(pNODE head);
+void printPlayerListpMod(pNODE head);
 pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName);
 void resetBalance(pPLAYER profile);
 void addFund(pPLAYER profile, int additionalFund);
 pPLAYER getPlayer(pNODE node);
 char* getName(pPLAYER player);
 int getBalane(pPLAYER player);
-
+int getListLength(pPLAYERLIST);
+pPLAYER getPlayerFromList(pPLAYERLIST, int);
 
 
 

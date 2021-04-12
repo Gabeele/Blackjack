@@ -106,7 +106,7 @@ void sortPlayerList(pNODE head)
 	} while (swapped);
 
 }
-void printPlayerList(pNODE head)
+void printPlayerListpMod(pNODE head)
 {
 	if (head == NULL)
 		return;
@@ -151,4 +151,18 @@ char* getName(pPLAYER player)
 int getBalane(pPLAYER player)
 {
 	return player->balance;
+}
+
+int getListLength(pPLAYERLIST playerList) {
+	int counter = 0;
+
+	pNODE node = playerList->head;
+
+	while (node != NULL) {
+
+		counter++;
+		node = node->nextPlayer;
+	}
+
+	return counter;
 }

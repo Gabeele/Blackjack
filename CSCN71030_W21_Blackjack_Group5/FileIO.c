@@ -34,7 +34,7 @@ int read(pPLAYERLIST saveList) {
 	FILE* fptr;
 	fptr = fopen("saved.txt", "r"); //open file
 	if (fptr == NULL) { //make sure it opens
-		printf_s("Error Retrieving Data");
+		printf_s("Error: File not found.\n");
 		return 1;
 	}
 	while (!feof(fptr)) {

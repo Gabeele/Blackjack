@@ -33,7 +33,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	
 			do {	
 
-				printf("Select a Player Number: ");
+				printf("Select a Player Number");
 				
 				playerIndex = getInput();
 
@@ -51,7 +51,7 @@ pPLAYER PlayerSelectMenu(char *cmdLnPlayer, pPLAYERLIST playerList) {
 	}
 
 	system("cls");
-	return (getPlayerFromList(playerList, playerIndex));
+	return (getPlayerFromList(playerList, playerIndex - 1));	//Minus one due to list starting at 0
 
 }
 
@@ -168,7 +168,7 @@ void printPlayerList(pPLAYERLIST playerList) {	//Cycles through the prints the l
 		
 		printf("%d) %s\n", counter, getName(node->player));
 
-		node->nextPlayer;
+		node = node->nextPlayer;
 
 		counter++;
 	}
@@ -192,7 +192,7 @@ void inputCreatePlayer(pPLAYERLIST playerList) {
 		return;
 	}
 
-	pPLAYER player = createPlayer(&name);	//TODO: Change parameters
+	pPLAYER player = createPlayer(&name);	
 	insertNewPlayer(playerList, player);
 
 	printf("Enter Player Name: ");

@@ -31,7 +31,7 @@ pPLAYER getPlayerFromList(pPLAYERLIST playerList, int index) {
 
 	for (int i = 0; i < index; i++) {
 
-		node->nextPlayer;
+		node = node->nextPlayer;
 
 		if (node == NULL) {
 			printf("Error: No player found.\n");

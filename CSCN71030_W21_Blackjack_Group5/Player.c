@@ -24,6 +24,24 @@ pPLAYER createPlayer(char* name)
 
 	return newPlayer;
 }
+
+pPLAYER getPlayerFromList(pPLAYERLIST playerList, int index) {
+
+	pNODE node = playerList->head;
+
+	for (int i = 0; i < index; i++) {
+
+		node->nextPlayer;
+
+		if (node == NULL) {
+			printf("Error: No player found.\n");
+			return NULL;
+		}
+
+	}
+
+	return node->player;
+}
 void insertNewPlayer(pPLAYERLIST playerList, pPLAYER newPlayer)
 {//add the new player to the front of the list and then sort the whole list
 	pNODE newNode = (pNODE)malloc(sizeof(NODE));

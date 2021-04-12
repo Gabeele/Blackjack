@@ -4,33 +4,26 @@
 
 
 
+
+#include "Player.h"
+#include "fileIO.h"
 #include "GUI.h"
-//#include "player.h"
-//#include "playerNode.h"
-//#include "playerList.h"
-//#include "gameMechanics.h"
-//#include "fileIO.h"
 
 int main(int argc, char** argv) {
 
-	//pPlayerList playerList = initalization();	//Creates, inisitalizes, and reads from the file and returns a playerList
+	pPLAYERLIST playerList = initializePlayerList();	//Creates, inisitalizes, and reads from the file and returns a playerList
 
-	//pPlayer player = selectPlayerMenu(cmdLnPlayer, playerList);	//Selects the player from the list either through the menu or through the command line argument
+	read(playerList);
 
-	//while (1) {
+	pPLAYER player = selectPlayerMenu(argv, playerList);	//Selects the player from the list either through the menu or through the command line argument
 
-	//	
-	//	mainMenu(playerList, player);
+	while (1) {
 
-	//}
+		mainMenu(playerList, player);
 
-	int data = getInput();
-	
-	if (data == NULL) {
-		printf("Exiting the program");
 	}
 
-	printf("%d", data);
+
 
 	return 0;
 }

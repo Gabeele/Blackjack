@@ -1,5 +1,5 @@
 #pragma once
-#pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,7 +10,7 @@ typedef struct player
 {
 	char name[MAXLENGTH];
 	int balance;
-}PLAYER, * pPLAYER;
+}PLAYER, *pPLAYER;
 
 typedef struct node
 {

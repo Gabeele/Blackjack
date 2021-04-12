@@ -1,7 +1,8 @@
 #pragma once
 
-#include "TestingModule.h"
+
 #include "inputValidation.h" 
+#include "Player.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,8 +14,6 @@
 #define  LEADERBOARD_COUNT 10
 #define MAX_INPUT 10
 
-void printDisclamer();
-
 pPLAYER PlayerSelectMenu(char*, pPLAYERLIST);
 
 void mainMenu(pPLAYERLIST, pPLAYER);
@@ -23,7 +22,7 @@ void displayLearnToPlay();
 
 void displayInstructions();
 
-void profileOptions(pPLAYER);
+void profileOptions(pPLAYERLIST, pPLAYER);
 
 void inputAddFunds(pPLAYER);
 

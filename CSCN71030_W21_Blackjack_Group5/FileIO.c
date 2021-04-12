@@ -18,13 +18,21 @@ int save(pPLAYERLIST saveList, int length) { //Save Function
 		printf_s("Error Saving");
 		return 1;
 	}
-	for (int i = 0; i < length; i++) { //save all info on different lines
-		fprintf(fptr, "%s", saveList->head->player->name);
+	pNODE head = saveList->head;
+	for (int i = 0; i < length - 1; i++) { //save all info on different lines
+		fprintf(fptr, "%s", head->player->name);
+		if (head->player->name[strlen(head->player->name) + 1] != '\n') {
+			fputc('\n', fptr);
+		}
+		fprintf(fptr, "%d", ~(head->player->balance));
 		fputc('\n', fptr);
-		fprintf(fptr, "%d", ~(saveList->head->player->balance));
-		fputc('\n', fptr);
-		saveList->head->player = saveList->head->nextPlayer; //move to next player
+		head = head->nextPlayer; //move to next player
 	}
+	fprintf(fptr, "%s", head->player->name);
+	if (head->player->name[strlen(head->player->name)-1] != '\n') {
+		fputc('\n', fptr);
+	}
+	fprintf(fptr, "%d", ~(head->player->balance));
 	fclose(fptr); //close files
 	return 0;
 }

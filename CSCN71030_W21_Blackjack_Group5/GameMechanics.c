@@ -80,7 +80,7 @@ void playRound(pPLAYER player, card deck[numDeck])
 	{
 		if (dealerTurn(deck, &dealerSum, &newCard))
 		{
-			determineWinner(playerSum, dealerSum, getBalane(player), bet);
+			determineWinner(playerSum, dealerSum, &player->balance, bet);
 		}
 		else
 		{

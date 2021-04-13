@@ -134,14 +134,22 @@ pPLAYER playerSelectByString(pPLAYERLIST playerList, char* inputName)
 
 			if (inputName[i] != currentPlayer->player->name[i]) {
 				checkNameFlag = 1;
+				break;
 			}
 
 		}
 
-		if (checkNameFlag == 0)
+		if (checkNameFlag == 0) {
 			return currentPlayer->player;
-		else
+		}
+		else {
 			currentPlayer = currentPlayer->nextPlayer;
+			checkNameFlag = 0;
+
+		}
+
+
+
 	} while (currentPlayer != NULL);
 	printf("There is no matching player\n");
 	return NULL;

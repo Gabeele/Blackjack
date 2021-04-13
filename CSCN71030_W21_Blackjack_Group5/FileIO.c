@@ -21,7 +21,7 @@ int save(pPLAYERLIST saveList, int length) { //Save Function
 	pNODE head = saveList->head;
 	for (int i = 0; i < length - 1; i++) { //save all info on different lines
 		fprintf(fptr, "%s", head->player->name);
-		if (head->player->name[strlen(head->player->name) + 1] != '\n') {
+		if (head->player->name[strlen(head->player->name) -1] != '\n') {
 			fputc('\n', fptr);
 		}
 		fprintf(fptr, "%d", ~(head->player->balance));
